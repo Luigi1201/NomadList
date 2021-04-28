@@ -20,3 +20,11 @@ Route::get('/', function () {
 Route::get('/nomadList', function () {
     return view('homepage');
 });
+
+Route::post('/login',function(){
+    return view('login');
+});
+
+Route::post('register',function(){
+    return view('register');
+});
