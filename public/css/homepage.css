@@ -1,0 +1,28 @@
+#videoContainer{
+    width: 100%;
+    margin-top: -8rem;
+    padding-top: 0;
+    background-color: black;
+}
+
+#video{
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    background-size: cover;
+}
+
+#principalContent{
+    border-top-style: ridge;
+    background-color: white;
+}
+
+.Button{
+    z-index: 100;
+    position: absolute;
+    margin-top: 0rem;
+    margin-right: 0rem;
+    height: 100px;
+    width: 70px;
+    background-color: khaki
+}
