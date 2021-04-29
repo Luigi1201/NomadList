@@ -1,8 +1,6 @@
 #videoContainer{
-    width: 100%;
     margin-top: -8rem;
     padding-top: 0;
-    background-color: black;
 }
 
 #video{
@@ -12,9 +10,13 @@
     background-size: cover;
 }
 
-#principalContent{
-    border-top-style: ridge;
-    background-color: white;
+.wave{
+    position: relative;
+    margin-top: -25rem;
+    left:-10px;
+    z-index:3;
+    width:105vw;
+    fill: white;
 }
 
 .Button{
