@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInfoTable extends Migration
+class CreateUtenteTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateInfoTable extends Migration
      */
     public function up()
     {
-        Schema::create('info_generali', function (Blueprint $table) {
+        Schema::create('utente', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->charset = 'utf8mb4';
+            $table->timestamps();
             $table->bigIncrements('id');
-            $table->string('coordinate',50);
-            $table->bigInteger('abitanti');
-            $table->integer('connessione');
-            $table->decimal('costo_vita', $precision = 4, $scale = 3);
+            $table->string('email',50);
+            $table->string('username',50);
+            $table->string('password',50);
         });
     }
 
@@ -31,6 +31,6 @@ class CreateInfoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('info');
+        Schema::dropIfExists('utente');
     }
 }
