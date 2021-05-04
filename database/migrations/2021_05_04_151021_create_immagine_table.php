@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInfoMeteoTable extends Migration
+class CreateImmagineTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,15 @@ class CreateInfoMeteoTable extends Migration
      */
     public function up()
     {
-        Schema::create('info_meteo', function (Blueprint $table) {
+        Schema::create('immagine', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->charset = 'utf8mb4';
             $table->bigIncrements('id');
-            $table->float('temperatura', 4, 2);
-            $table->integer('umidità');
-            $table->float('vento', 5, 2);
-            $table->integer('nuvolosità');
-            $table->integer('pressione_atmosferica');
+            $table->binary('img');
+            $table->bigInteger('info_generali');
+            $table->foreign('info_generali')->references('id')->on('info_generali');
         });
+            
     }
 
     /**
@@ -32,6 +31,6 @@ class CreateInfoMeteoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('info_meteo');
+        Schema::dropIfExists('immagine');
     }
 }

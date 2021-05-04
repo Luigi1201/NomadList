@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInfoMeteoTable extends Migration
+class CreateCittaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,16 @@ class CreateInfoMeteoTable extends Migration
      */
     public function up()
     {
-        Schema::create('info_meteo', function (Blueprint $table) {
+        Schema::create('citta', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->charset = 'utf8mb4';
             $table->bigIncrements('id');
-            $table->float('temperatura', 4, 2);
-            $table->integer('umidità');
-            $table->float('vento', 5, 2);
-            $table->integer('nuvolosità');
-            $table->integer('pressione_atmosferica');
+            $table->string('nome',30);
+            $table->string('stato',30);
+            $table->bigInteger('info_generali');
+            $table->bigInteger('info_meteo');
+            $table->foreign('info_generali')->references('id')->on('info_generali');
+            $table->foreign('info_meteo')->references('id')->on('info_meteo');
         });
     }
 
@@ -32,6 +33,6 @@ class CreateInfoMeteoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('info_meteo');
+        Schema::dropIfExists('citta');
     }
 }
