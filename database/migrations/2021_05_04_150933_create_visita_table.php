@@ -13,15 +13,14 @@ class CreateVisitaTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('visita');
         Schema::create('visita', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->charset = 'utf8mb4';
             $table->bigIncrements('id');
             $table->date('data');
-            $table->bigInteger('citta');
-            $table->bigInteger('utente');
-            $table->foreign('citta')->references('id')->on('citta');
-            $table->foreign('utente')->references('id')->on('utente');
+            $table->foreignId('citta_id')->constrained('citta');
+            $table->foreignId('user_id')->constrained('users');
         });
     }
 

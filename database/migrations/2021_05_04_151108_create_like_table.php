@@ -13,14 +13,13 @@ class CreateLikeTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('like');
         Schema::create('like', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->charset = 'utf8mb4';
-            $table->bigInteger('citta');
-            $table->bigInteger('utente');
-            $table->foreign('citta')->references('id')->on('citta');
-            $table->foreign('utente')->references('id')->on('utente');
-            $table->primary(['citta', 'utente']);
+            $table->foreignId('citta_id')->constrained('citta');
+            $table->foreignId('user_id')->constrained('users');
+            $table->primary(['citta_id', 'user_id']);
         });
     }
 

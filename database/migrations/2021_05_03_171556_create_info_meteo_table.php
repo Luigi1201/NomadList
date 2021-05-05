@@ -13,6 +13,7 @@ class CreateInfoMeteoTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('info_meteo');
         Schema::create('info_meteo', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->charset = 'utf8mb4';

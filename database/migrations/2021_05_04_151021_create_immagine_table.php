@@ -13,13 +13,13 @@ class CreateImmagineTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('immagine');
         Schema::create('immagine', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->charset = 'utf8mb4';
             $table->bigIncrements('id');
             $table->binary('img');
-            $table->bigInteger('info_generali');
-            $table->foreign('info_generali')->references('id')->on('info_generali');
+            $table->foreignId('info_generali_id')->constrained('info_generali');
         });
             
     }

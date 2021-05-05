@@ -13,6 +13,7 @@ class CreateInfoTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('info_generali');
         Schema::create('info_generali', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->charset = 'utf8mb4';

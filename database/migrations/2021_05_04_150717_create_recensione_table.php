@@ -13,15 +13,15 @@ class CreateRecensioneTable extends Migration
      */
     public function up()
     {
+        Schema::enableForeignKeyConstraints();
+        Schema::dropIfExists('recensione');
         Schema::create('recensione', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->charset = 'utf8mb4';
             $table->bigIncrements('id');
             $table->string('commento',100);
-            $table->bigInteger('citta');
-            $table->bigInteger('utente');
-            $table->foreign('citta')->references('id')->on('citta');
-            $table->foreign('utente')->references('id')->on('utente');
+            $table->foreignId('citta_id')->constrained('citta');
+            $table->foreignId('user_id')->constrained('users');
         });
     }
 
