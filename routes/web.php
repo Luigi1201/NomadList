@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\UserAuthController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,14 +19,14 @@ Route::get('/', function () {
     return view('homepage');
 });
 
-Route::get('/nomadList', function () {
-    return view('homepage');
-});
+Route::get('login',[UserAuthController::class,'login']);
 
-Route::post('/login',function(){
-    return view('login');
-});
+Route::get('register',[UserAuthController::class,'register']);
 
-Route::post('register',function(){
-    return view('register');
-});
+Route::post('newUser',[UserAuthController::class,'newUser'])->name('auth.newUser');
+
+Route::post('check',[UserAuthController::class,'check'])->name('auth.check');
+
+Route::get('profile',[UserAuthController::class,'profile']);
+
+Route::get('logout',[UserAuthController::class,'logout']);
