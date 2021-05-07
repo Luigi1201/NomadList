@@ -1,34 +1,42 @@
 #videoContainer{
-    position:fixed;
-    top: 0px;
-    margin-top: -3rem;
-    padding: 0px;
+    width: 100%;
+    position:absolute;
+    top: 0;
+    padding: 0;
+    margin-top: -5rem;
     z-index: -100;
 }
 
 #video{
-    margin: 0px;
-    padding: 0px;
     width: 100%;
+    margin: 0;
+    padding: 0;
     background-size: cover;
 }
 
 .wave{
-    position: relative;
-    margin-top: -5rem;
-    left:-10px;
-    min-width:105vw;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    transform: translateY(-60%);
     fill: white;
 }
+.wave svg {
+    fill: white;
+    width: 102%;
+    margin-left: -1%;
+    height: auto;
+  }
 
 .onVideoContents{
     z-index:2;
-    position:fixed;
+    position:absolute;
     top:0;
     width:100%;   
 }
 .GoNomad{
-    position: fixed;
+    z-index: 2;
+    position: absolute;
     top: 10rem;
     left: 4rem;
     height: 20%;
@@ -37,12 +45,15 @@
     background-color: yellow;
 }
 .ButtonLogin{
+    z-index: 2;
     position: fixed;
-    top: 4.3rem;
-    right: 5.5rem;
-    height: 400px;
-    width: 390px;
+    top: 3.5rem;
+    right: 5rem;
+    /*
+    height: 25rem;
+    width: 24.375rem;
     border-radius: 15px;
     box-shadow: 0px 3px 2px #dedede;
     background-color: white
+    */
 }
