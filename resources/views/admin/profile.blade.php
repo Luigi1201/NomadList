@@ -10,6 +10,7 @@
 <body>
     <div class="container">
         <div class="row" style="margin-top:45px">
+            <div class="col-md-3"></div>
             <div class="col-md-6 col-md-offset-3">
                 <h3>Profilo</h3>
                 <hr>
@@ -28,6 +29,7 @@
                     </tbody>
                 </table>
             </div>
+            <div class="col-md-3"></div>
         </div>
     </div>
 </body>

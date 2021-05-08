@@ -10,6 +10,7 @@
 <body>
     <div class="container">
         <div class="row" style="margin-top:45px">
+            <div class="col-md-4"></div>
             <div class="col-md-4 col-md-offset-4">
                 <h3>Registrazione</h3>
                 <hr>
@@ -61,6 +62,7 @@
                     <a href="login">Hai già un account? effettua il login</a>
                 </form>
             </div>
+            <div class="col-md-4"></div>
         </div>
     </div>
 </body>

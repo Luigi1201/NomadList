@@ -19,14 +19,14 @@ Route::get('/', function () {
     return view('homepage');
 });
 
-Route::get('login',[UserAuthController::class,'login']);
+Route::get('login',[UserAuthController::class,'login'])->middleware('AlreadyLogged');
 
-Route::get('register',[UserAuthController::class,'register']);
+Route::get('register',[UserAuthController::class,'register'])->middleware('AlreadyLogged');
 
 Route::post('newUser',[UserAuthController::class,'newUser'])->name('auth.newUser');
 
 Route::post('check',[UserAuthController::class,'check'])->name('auth.check');
 
-Route::get('profile',[UserAuthController::class,'profile']);
+Route::get('profile',[UserAuthController::class,'profile'])->middleware('isLogged');
 
 Route::get('logout',[UserAuthController::class,'logout']);
