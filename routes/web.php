@@ -19,6 +19,10 @@ Route::get('/', function () {
     return view('homepage');
 });
 
+Route::get('città',function(){
+    return view('cittaProva');
+});
+
 Route::get('login',[UserAuthController::class,'login'])->middleware('AlreadyLogged');
 
 Route::get('register',[UserAuthController::class,'register'])->middleware('AlreadyLogged');
@@ -30,3 +34,4 @@ Route::post('check',[UserAuthController::class,'check'])->name('auth.check');
 Route::get('profile',[UserAuthController::class,'profile'])->middleware('isLogged');
 
 Route::get('logout',[UserAuthController::class,'logout']);
+

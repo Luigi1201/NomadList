@@ -44,3 +44,7 @@
     top: 3.5rem;
     right: 5rem;
 }
+
+.col-6 col-md-3{
+    border: 2px solid black;
+}

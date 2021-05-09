@@ -30,6 +30,22 @@
 			<path d="M1440,21.2101911 L1440,120 L0,120 L0,21.2101911 C120,35.0700637 240,42 360,42 C480,42 600,35.0700637 720,21.2101911 C808.32779,12.416393 874.573633,6.87702029 918.737528,4.59207306 C972.491685,1.8109458 1026.24584,0.420382166 1080,0.420382166 C1200,0.420382166 1320,7.35031847 1440,21.2101911 Z"></path>
 		</svg> 
 	</div>    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6 col-md-3">
+                <span class="border border-primary">a</span>
+            </div>
+            <div class="col-6 col-md-3">
+                <span class="border border-secondary">b</span>
+            </div>
+            <div class="col-6 col-md-3">
+                <span class="border border-success">c</span>
+            </div>
+            <div class="col-6 col-md-3">
+                <span class="border border-danger">d</span>
+            </div>
+        </div>
+    </div>
 </body>
 </body>
 </html>
