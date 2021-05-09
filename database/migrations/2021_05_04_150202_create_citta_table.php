@@ -20,8 +20,6 @@ class CreateCittaTable extends Migration
             $table->bigIncrements('id');
             $table->string('nome',30);
             $table->string('stato',30);
-            $table->foreignId('info_generali_id')->constrained('info_generali');
-            $table->foreignId('info_meteo_id')->constrained('info_meteo');
         });
     }
 
