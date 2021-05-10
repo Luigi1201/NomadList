@@ -35,3 +35,6 @@ Route::get('profile',[UserAuthController::class,'profile'])->middleware('isLogge
 
 Route::get('logout',[UserAuthController::class,'logout']);
 
+Route::get('provaJson',function(){
+    return view('provaJson');
+});
