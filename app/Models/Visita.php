@@ -9,4 +9,5 @@ class Visita extends Model
 {
     use HasFactory;
     protected $table = 'visita';
+    protected $primaryKey = 'id';
 }

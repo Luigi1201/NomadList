@@ -20,6 +20,7 @@ class CreateRecensioneTable extends Migration
             $table->charset = 'utf8mb4';
             $table->bigIncrements('id');
             $table->string('commento',100);
+            $table->timestamps($precision = 0);
             $table->foreignId('citta_id')->constrained('citta');
             $table->foreignId('user_id')->constrained('users');
         });

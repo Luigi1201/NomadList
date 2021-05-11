@@ -9,4 +9,5 @@ class Recensione extends Model
 {
     use HasFactory;
     protected $table = 'recensione';
+    protected $primaryKey = 'id';
 }

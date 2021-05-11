@@ -9,4 +9,5 @@ class Info_generali extends Model
 {
     use HasFactory;
     protected $table = 'info_generali';
+    protected $primaryKey = 'id';
 }
