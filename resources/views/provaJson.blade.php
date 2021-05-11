@@ -17,6 +17,21 @@ echo '<br>'."Pressione atmosferica: ".$json['main']['pressure']."hPa";
 
 echo '<br>'.'<br>'."MODEL FOR SEED";
 use App\Models\Citta;
-$citta = Citta::where('nome', $citta)->get();
-echo $citta->id;
-?>
+$cittaAll = Citta::all();
+echo '<br>'.'<br>'."Città all: (con Citta::all)   RISULTATO ==";
+echo $cittaAll.'<br>';
+$citta = Citta::where('nome', $citta)->get("id");
+echo '<br>'."Città id: (con  Citta::where(nome, $citta)->get(id))  RISULTATO ==";
+echo $citta[0]['id'];
+
+
+echo "ALGOLIA API: ".'<br>';
+
+$appId = '5OQR0ZOK0U';
+$apiKey = '23c036baf210932665dfe082c88e8ad0';
+
+$places = \Algolia\AlgoliaSearch\PlacesClient::create($appId, $apiKey);
+
+$result = $places->search('Paris');
+var_dump($result);
+?> 
