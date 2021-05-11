@@ -10,4 +10,5 @@ class Citta extends Model
     use HasFactory;
     protected $table = 'citta';
     protected $primaryKey = 'id';
+    public $timestamps = false;
 }

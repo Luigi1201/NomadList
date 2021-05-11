@@ -10,4 +10,5 @@ class Info_meteo extends Model
     use HasFactory;
     protected $table = 'info_meteo';
     protected $primaryKey = 'id';
+    public $timestamps = false;
 }
