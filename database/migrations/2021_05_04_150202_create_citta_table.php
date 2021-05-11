@@ -18,7 +18,7 @@ class CreateCittaTable extends Migration
             $table->engine = 'InnoDB';
             $table->charset = 'utf8mb4';
             $table->bigIncrements('id');
-            $table->string('nome',30);
+            $table->string('nome',30)->unique();
             $table->string('stato',30);
         });
     }

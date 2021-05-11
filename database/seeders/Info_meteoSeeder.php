@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use DB;
 use Illuminate\Database\Seeder;
+use App\Models\Citta;
 
 function getJson($citta){
     $url = "http://api.openweathermap.org/data/2.5/weather?q=$citta&appid=2732c9ea6b5f3d562d093d2ad6effc52";
@@ -23,13 +24,16 @@ class Info_meteoSeeder extends Seeder
     {
         $citta="Roma";
         $json=getJson($citta);
+
+        $citta = Citta::where('nome', $citta)->get();
+
         DB::table('info_meteo')->insert([
             'temperatura' => (($json['main']['temp'])-273.15),
             'umidità' => $json['main']['humidity'],
             'vento' => $json['wind']['speed'],
             'nuvolosità' => $json['clouds']['all'],
             'pressione_atmosferica' => $json['main']['pressure'],
-            'citta_id' => 1
+            'citta_id' => $citta->id
         ]);
     }
 }

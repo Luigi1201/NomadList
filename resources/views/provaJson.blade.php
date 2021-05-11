@@ -13,4 +13,10 @@ echo '<br>'."Umidità: ".$json['main']['humidity']."%";
 echo '<br>'."Vento: ".$json['wind']['speed']."m/s";
 echo '<br>'."Nuvolosità: ".$json['clouds']['all']."%";
 echo '<br>'."Pressione atmosferica: ".$json['main']['pressure']."hPa";
+
+
+echo '<br>'.'<br>'."MODEL FOR SEED";
+use App\Models\Citta;
+$citta = Citta::where('nome', $citta)->get();
+echo $citta->id;
 ?>
