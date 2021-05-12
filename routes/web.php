@@ -36,4 +36,4 @@ Route::get('provaJson',function(){
     return view('provaJson');
 });
 
-Route::get('/città/{nome}',[CityDataController::class, 'getData']);
+Route::get('/città/{nome}',[CityDataController::class, 'getData'])->middleware('isLogged');
