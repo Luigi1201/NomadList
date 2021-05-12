@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UserAuthController;
+use App\Http\Controllers\CityDataController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +18,6 @@ use App\Http\Controllers\UserAuthController;
 
 Route::get('/', function () {
     return view('homepage');
-});
-
-Route::get('città',function(){
-    return view('cittaProva');
 });
 
 Route::get('login',[UserAuthController::class,'login'])->middleware('AlreadyLogged');
@@ -38,3 +35,5 @@ Route::get('logout',[UserAuthController::class,'logout']);
 Route::get('provaJson',function(){
     return view('provaJson');
 });
+
+Route::get('/città/{nome}',[CityDataController::class, 'getData']);

@@ -8,21 +8,31 @@
     <title>{{ $title ?? 'Città' }}</title>
 </head>
 <body>
-    <div class="container">
-        <div class="row" style=" margin-top:45px ">
-            <div class="col" style="border: 2px solid black">
-                InfoGenerali 
+    <div class="container" style="margin-top: 3rem;">
+        <div class="row" style="border: 2px solid black; height: 15rem">
+            {{$immagineSfondo}}
+            <div class="col" style="position:absolute; top:0; left:0">
+                <h1 style="text-align: center; margin-top: 4.5rem;"><strong><font color="white"> {{ $nomeCitta }} </font></strong></h1>
             </div>
-            <div class="col" style="border: 2px solid black">
-                InfoMeteo 
+            <div class="w-100"></div>
+            <div class="col" style="position:absolute; top:0; left:0">
+                <h3 style="text-align: center; margin-top: 7rem;"><strong><font color="white"> {{ $statoCitta }} </font></strong></h3>
             </div>
         </div>
         <div class="row">
-            <div class="col" style="text-align: center">
-                Qui vanno i dati generali -> {{ $datiGenerali ?? 'Dati Generali auto' }}
+            <div class="col-6" style="border: 2px solid black">
+                Informazioni generali 
             </div>
-            <div class="col" style="text-align: center">
-                Qui vanno i dati meteo -> {{ $datiMeteo ?? 'Dati Meteo auto' }}
+            <div class="col-6" style="border: 2px solid black">
+                Informazioni meteo
+            </div>
+        </div>
+        <div class="row" style="border: 2px solid black; height:17rem">
+            <div class="col"  style="margin-top:2rem">
+                {{ $datiGenerali}}
+            </div>
+            <div class="col" style="margin-top:2rem">
+                {{ $datiMeteo }}
             </div>
         </div>
     </div>

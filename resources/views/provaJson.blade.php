@@ -25,6 +25,7 @@ echo '<br>'."Città id: (con  Citta::where(nome, $citta)->get(id))  RISULTATO ==
 echo $citta[0]['id'];
 
 
+/*
 echo "ALGOLIA API: ".'<br>';
 
 $appId = '5OQR0ZOK0U';
@@ -34,4 +35,19 @@ $places = \Algolia\AlgoliaSearch\PlacesClient::create($appId, $apiKey);
 
 $result = $places->search('Paris');
 var_dump($result);
+*/
+
+use App\Models\Info_generali;
+use App\Models\Info_meteo;
+echo '<br><br>'."PROVA DATI PER CONTROLLER PARAMETRI CITTA IN VIEW".'<br>';
+$nome="Londra";
+$Info_citta = Citta::where('nome', $nome)->get();
+echo '{1} Info città : '.$Info_citta.'<br>';
+$Info_generali = Info_generali::where('citta_id', $Info_citta[0]['id'])->get();
+echo '{2} Info generali : '.$Info_generali.'<br>';
+$Info_meteo = Info_meteo::where('citta_id', $Info_citta[0]['id'])->get();
+echo '{3} Info meteo : '.$Info_meteo.'<br>';
+$citta =$Info_citta[0]['id'];
+echo '{4} Citta : '.$citta;
+
 ?> 
