@@ -47,6 +47,7 @@
                     <br>
                     <a href="register">Crea un nuovo account</a>
                 </form>
+                <a href="/">Homepage</a>
             </div>
             <div class="col-md-4"></div>
         </div>

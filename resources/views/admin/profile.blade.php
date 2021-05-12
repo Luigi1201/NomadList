@@ -12,7 +12,7 @@
         <div class="row" style="margin-top:45px">
             <div class="col-md-3"></div>
             <div class="col-md-6 col-md-offset-3">
-                <h3>Profilo</h3>
+                <h3>Il tuo profilo</h3>
                 <hr>
                 <table class="table table-hover">
                     <thead>
@@ -25,6 +25,7 @@
                             <td>{{ $LoggedUserInfo->name }}</td>
                             <td>{{ $LoggedUserInfo->email }}</td>
                             <td><a href="logout">Logout</a></td>
+                            <td><a href="/">Homepage</a></td>
                         </tr>
                     </tbody>
                 </table>

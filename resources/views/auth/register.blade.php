@@ -61,6 +61,7 @@
                     <br>
                     <a href="login">Hai già un account? effettua il login</a>
                 </form>
+                <a href="/">Homepage</a>
             </div>
             <div class="col-md-4"></div>
         </div>

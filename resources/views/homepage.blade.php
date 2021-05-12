@@ -21,9 +21,15 @@
         </div>
     </div>      
     <div class="ButtonLogin">
+        @if (!session()->has("LoggedUser"))
         <form action="login">
             <button class="btn btn-block btn-danger btn-lg">Login</button>  
         </form>
+        @else
+        <form action="profile">
+            <button class="btn btn-block btn-danger btn-lg">Profilo</button>  
+        </form>
+        @endif
     </div> 
 	<div class="wave">
 		<svg viewBox="0 0 1440 120">
