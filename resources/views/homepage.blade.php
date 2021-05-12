@@ -39,7 +39,15 @@
     <div class="container-fluid" style="margin-top:3rem">
         <div class="row">
             <div class="col-6 col-md-3">
-                <div style="margin: 0auto; padding-top: 100%; height: 0; overflow: hidden;background-color: #57BCB7; position: relative"></div>
+                <div style="margin: 0auto; padding-top: 100%; height: 0; overflow: hidden; position: relative">
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                        <div style="margin-top:30%">
+                            <h2 style="text-align: center"><strong><font color="white">Roma</font></strong></h2>
+                            <h4 style="text-align: center"><strong><font color="white">Italia</font></strong></h4>
+                        </div>
+                        <img src="/media/ImgCitta/Roma.jpg" style="position: absolute; top: 0; left: 0;width: 100%; height: 100%; object-fit: cover; z-index: -50"/>
+                    </div>
+                </div>
             </div>
             <div class="col-6 col-md-3">
                 <div style="margin: 0auto; padding-top: 100%; height: 0; overflow: hidden;background-color: #57BCB7; position: relative"></div>
