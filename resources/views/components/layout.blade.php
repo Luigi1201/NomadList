@@ -27,7 +27,7 @@
                 Informazioni meteo
             </div>
         </div>
-        <div class="row" style="border: 2px solid black; height:17rem">
+        <div class="row" style="border: 2px solid black; height:20rem">
             <div class="col"  style="margin-top:2rem">
                 {{ $datiGenerali}}
             </div>
