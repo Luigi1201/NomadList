@@ -40,8 +40,9 @@
     <div class="container-fluid" style="margin-top:3rem">
         <div class="row">
             @foreach ($cities as $city)
-                <div class="col-6 col-md-3" style="margin-top: 2rem">
-                    <div style="margin: 0auto; padding-top: 100%; height: 0; overflow: hidden; position: relative">
+            @php ($redirectCity = "/".$city['nome'])
+                <div class="col-6 col-md-3" style="margin-bottom: 2rem" onclick="location.href= '{{$redirectCity}}' ">
+                    <div style="margin: 0auto; padding-top: 100%; height: 0; overflow: hidden; position: relative; border-radius: 12px;">
                         <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
                             <div style="margin-top:30%">
                                 <h2 style="text-align: center"><strong><font color="white">{{$city['nome']}}</font></strong></h2>

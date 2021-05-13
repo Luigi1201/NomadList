@@ -56,7 +56,10 @@ $cittaResults = Citta::all();
 echo $cittaResults.'<br>';
 echo "  DA QUI  ".'<br>';
 foreach ($cittaResults as $citta) {
-    echo $citta['nome'];
+    //REDIRECT CLICK IN HOMEPAGE PER ANDARE IN CITTA'
+    $redirectCity = "/".$citta['nome'];
+    echo '<br>';
+    echo $redirectCity;
 }
 
 ?> 
