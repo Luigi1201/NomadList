@@ -30,17 +30,17 @@
 
 .GoNomad{
 	top: 3.5rem;
-	left:2rem;
+	left:1rem;
 	position: absolute;
     z-index: 2;
-    width: 50%;
+    width: 65%;
     overflow: hidden
 }
 .ButtonLogin{
     z-index: 2;
     position: fixed;
     top: 3.5rem;
-    right: 5rem;
+    right: 3rem;
 }
 
 .col-6 col-md-3{

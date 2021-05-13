@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UserAuthController;
 use App\Http\Controllers\CityDataController;
-
+use App\Http\Controllers\CittaHomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,9 +16,7 @@ use App\Http\Controllers\CityDataController;
 |
 */
 
-Route::get('/', function () {
-    return view('homepage');
-});
+Route::get('/',[CittaHomeController::class,'datiCitta']);
 
 Route::get('login',[UserAuthController::class,'login'])->middleware('AlreadyLogged');
 

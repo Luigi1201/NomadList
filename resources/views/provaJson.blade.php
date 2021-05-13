@@ -50,4 +50,13 @@ echo '{3} Info meteo : '.$Info_meteo.'<br>';
 $citta =$Info_citta[0]['id'];
 echo '{4} Citta : '.$citta;
 
+//PROVA PER CAPIRE COSA ESCE DA MODEL
+echo '<br><br> Citta:all() results: <br>';
+$cittaResults = Citta::all();
+echo $cittaResults.'<br>';
+echo "  DA QUI  ".'<br>';
+foreach ($cittaResults as $citta) {
+    echo $citta['nome'];
+}
+
 ?> 
