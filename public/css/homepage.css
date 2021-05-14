@@ -34,13 +34,15 @@
 	position: absolute;
     z-index: 2;
     width: 65%;
-    overflow: hidden
+    overflow: hidden;
+    cursor: pointer;
 }
 .ButtonLogin{
     z-index: 2;
     position: fixed;
     top: 3.5rem;
     right: 3rem;
+    cursor: pointer;
 }
 
 .col-6 col-md-3{
