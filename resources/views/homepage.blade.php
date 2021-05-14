@@ -50,6 +50,9 @@
                             </div>
                             @php ($nomeImmagine = "/media/ImgCitta/".$city['nome'].".jpg")
                             <img src={{$nomeImmagine}} style="position: absolute; top: 0; left: 0;width: 100%; height: 100%; object-fit: cover; z-index: -50"/>
+                            <div style="position: absolute; top: 0; left: 0;width: 10%; height: 10%; object-fit: cover; cursor: crosshair; z-index: 10"  onclick="location.href='/homepage'">
+                                <img src="/media/like.jpg" style="position: absolute; top: 0; left: 0;width: 100%; height: 100%; object-fit: cover; opacity:.5; z-index: 10"/>
+                            </div>
                         </div>
                     </div>
                 </div>    

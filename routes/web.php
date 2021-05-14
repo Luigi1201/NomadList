@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserAuthController;
 use App\Http\Controllers\CityDataController;
 use App\Http\Controllers\CittaHomeController;
+use App\Http\Controllers\LikeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,3 +36,5 @@ Route::get('provaJson',function(){
 });
 
 Route::get('/{nome}',[CityDataController::class, 'getData'])->middleware('isLogged');
+
+Route::get('/like',[LikeController::class, 'likeFunction']);
