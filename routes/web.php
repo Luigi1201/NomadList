@@ -19,6 +19,7 @@ use App\Http\Controllers\LikeController;
 
 Route::get('/',[CittaHomeController::class,'datiCitta']);
 
+
 Route::get('login',[UserAuthController::class,'login'])->middleware('AlreadyLogged');
 
 Route::get('register',[UserAuthController::class,'register'])->middleware('AlreadyLogged');

@@ -43,14 +43,16 @@
             @php ($redirectCity = "/".$city['nome'])
                 <div class="col-6 col-md-3" style="margin-bottom: 2rem;">
                     <div style="margin: 0auto; padding-top: 100%; height: 0; overflow: hidden; position: relative; border-radius: 12px;">
-                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;cursor: pointer" onclick="location.href= '{{$redirectCity}}' ">
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;cursor: pointer">
                             <div style="margin-top:30%">
-                                <h2 style="text-align: center"><strong><font color="white">{{$city['nome']}}</font></strong></h2>
-                                <h4 style="text-align: center"><strong><font color="white">{{$city['stato']}}</font></strong></h4>
+                                <h2 style="text-align: center" onclick="location.href= '{{$redirectCity}}' "><strong><font color="white">{{$city['nome']}}</font></strong></h2>
+                                <h4 style="text-align: center" onclick="location.href= '{{$redirectCity}}' "><strong><font color="white">{{$city['stato']}}</font></strong></h4>
                             </div>
                             @php ($nomeImmagine = "/media/ImgCitta/".$city['nome'].".jpg")
-                            <img src={{$nomeImmagine}} style="position: absolute; top: 0; left: 0;width: 100%; height: 100%; object-fit: cover; z-index: -50"/>
-                            <div style="position: absolute; top: 0; left: 0;width: 10%; height: 10%; object-fit: cover; cursor: crosshair; z-index: 10"  onclick="location.href='/homepage'">
+                            <div style="position: absolute; top: 0; left: 0;width: 100%; height: 100%; object-fit: cover" onclick="location.href= '{{$redirectCity}}' ">
+                                <img src={{$nomeImmagine}} style="position: absolute; top: 0; left: 0;width: 100%; height: 100%; object-fit: cover; z-index: -50"/>
+                            </div>
+                            <div style="position: absolute; top: 0; left: 0;width: 10%; height: 10%; object-fit: cover; cursor: crosshair; z-index: 10"  onclick="location.href='/like'">
                                 <img src="/media/like.jpg" style="position: absolute; top: 0; left: 0;width: 100%; height: 100%; object-fit: cover; opacity:.5; z-index: 10"/>
                             </div>
                         </div>
