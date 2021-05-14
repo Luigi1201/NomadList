@@ -38,4 +38,4 @@ Route::get('provaJson',function(){
 
 Route::get('/{nome}',[CityDataController::class, 'getData'])->middleware('isLogged');
 
-Route::get('/like',[LikeController::class, 'likeFunction']);
+Route::post('/like',[LikeController::class, 'likeFunction'])->middleware('isLogged');
