@@ -19,7 +19,6 @@ use App\Http\Controllers\LikeController;
 
 Route::get('/',[CittaHomeController::class,'datiCitta']);
 
-
 Route::get('login',[UserAuthController::class,'login'])->middleware('AlreadyLogged');
 
 Route::get('register',[UserAuthController::class,'register'])->middleware('AlreadyLogged');
@@ -32,10 +31,6 @@ Route::get('profile',[UserAuthController::class,'profile'])->middleware('isLogge
 
 Route::get('logout',[UserAuthController::class,'logout']);
 
-Route::get('provaJson',function(){
-    return view('provaJson');
-});
-
 Route::get('/{nome}',[CityDataController::class, 'getData'])->middleware('isLogged');
 
-Route::post('/like',[LikeController::class, 'likeFunction'])->middleware('isLogged');
+Route::post('like',[LikeController::class, 'likeFunction'])->middleware('isLogged');
