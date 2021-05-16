@@ -35,6 +35,3 @@ Route::get('/{nome}',[CityDataController::class, 'getData'])->middleware('isLogg
 
 Route::post('like',[LikeController::class, 'likeFunction'])->name('like');
 
-Route::get('/prova',function(){
-    return view('provaJson');
-});
