@@ -7,7 +7,9 @@
     </x-slot>
 
     <x-slot name="immagineSfondo">
-        @php ($nomeImmagine = "/media/ImgCitta/".$Info_citta[0]['nome'].".jpg")
+        @php 
+            $nomeImmagine = "/media/ImgCitta/".$Info_citta[0]['nome'].".jpg";
+        @endphp
         <img src={{$nomeImmagine}} style="z-index:-100; width: 100%; height: 100%; object-fit:cover" />
     </x-slot>
 
@@ -58,6 +60,22 @@
         </div>
     </x-slot>
     
+    <x-slot name="LikeOrNot">
+        <!--Se esiste tupla con coppia citta utente allora content = "Non mi piace più" altrimenti "Mi piace" button-->
+        @php
+            $idCitta = $Info_citta[0]['id'];
+            $idUtente = session('LoggedUser');
+        @endphp
+        @if (isset($Likes[0]))
+            @if ($Likes[0]['citta_id']==$idCitta && $Likes[0]['user_id']==$idUtente)
+                Non mi piace più
+            @else
+                Mi piace
+            @endif
+        @else Mi piace
+        @endif
+    </x-slot>
+
     <x-slot name="cittaLike">
         {{ $Info_citta[0]['id'] }}
     </x-slot>

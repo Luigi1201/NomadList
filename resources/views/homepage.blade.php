@@ -54,8 +54,10 @@
                             </div>
                             @php ($IdUser=session('LoggedUser'))
                             <div style="position: absolute; top: 0; left: 0;width: 10%; height: 10%; object-fit: cover; z-index: 10">
+                                @if (isset($likes[0]))
                                 @if ( ( $city['id']  ==  $likes[0]['citta_id'] ) && ( $likes[0]['user_id']  ==  $IdUser ) )    
                                 <img src="/media/like.jpg" style="position: absolute; top: 0; left: 0;width: 100%; height: 100%; object-fit: cover"/> <!-- opacity:.5-->
+                                @endif
                                 @endif
                             </div>
                         </div>

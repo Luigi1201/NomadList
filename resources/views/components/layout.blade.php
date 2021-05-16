@@ -40,7 +40,7 @@
     <form action="{{ route('like') }}" method="POST">
         @csrf
         <input type="hidden" name="CittaId" value="{{ $cittaLike }}">
-        <button type="submit" class="btn btn-primary btn-lg btn-block">Mi piace</button>   
+        <button type="submit" class="btn btn-primary btn-lg btn-block">{{$LikeOrNot}}</button>   
     </form>
 </body>
 </html>
