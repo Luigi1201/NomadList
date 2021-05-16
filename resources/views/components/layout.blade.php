@@ -36,7 +36,12 @@
             </div>
         </div>
     </div> 
-    <hr>
-    <button type="button" class="btn btn-primary btn-lg btn-block" value="Input">Block level button</button>   
+
+    <form action="{{ route('like') }}" method="POST">
+        @csrf
+        <input type="hidden" name="UserId" value="{{1}}"> <!--nel value va LoggedUser->id-->
+        <input type="hidden" name="CittaId" value="2">
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Mi piace</button>   
+    </form>
 </body>
 </html>

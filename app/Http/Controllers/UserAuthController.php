@@ -78,7 +78,7 @@ class UserAuthController extends Controller
         }
     }
 
-    function profile(){
+    function profile(Request $request){
         if(session()->has('LoggedUser')){
             // METODO1 $user = User::where('id','=',session('LoggedUser'))->first();
             //METODO2 : 
@@ -99,3 +99,8 @@ class UserAuthController extends Controller
         }
     }
 }
+
+/*
+Salva dati sessione
+$request ->session()->put('UserData',$user);
+//cancella dati sessione in logout con forget

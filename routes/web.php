@@ -33,4 +33,4 @@ Route::get('logout',[UserAuthController::class,'logout']);
 
 Route::get('/{nome}',[CityDataController::class, 'getData'])->middleware('isLogged');
 
-Route::post('like',[LikeController::class, 'likeFunction'])->middleware('isLogged');
+Route::post('like',[LikeController::class, 'likeFunction'])->name('like');
