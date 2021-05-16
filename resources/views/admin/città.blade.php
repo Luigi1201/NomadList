@@ -58,4 +58,8 @@
         </div>
     </x-slot>
     
+    <x-slot name="cittaLike">
+        {{ $Info_citta[0]['id'] }}
+    </x-slot>
+
 </x-layout>

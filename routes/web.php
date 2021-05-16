@@ -34,3 +34,7 @@ Route::get('logout',[UserAuthController::class,'logout']);
 Route::get('/{nome}',[CityDataController::class, 'getData'])->middleware('isLogged');
 
 Route::post('like',[LikeController::class, 'likeFunction'])->name('like');
+
+Route::get('/prova',function(){
+    return view('provaJson');
+});

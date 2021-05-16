@@ -18,8 +18,9 @@ class CreateLikeTable extends Migration
             $table->engine = 'InnoDB';
             $table->charset = 'utf8mb4';
             $table->bigIncrements('id');
-            $table->foreignId('citta_id')->constrained('citta')->unique();
-            $table->foreignId('user_id')->constrained('users')->unique();
+            $table->foreignId('citta_id')->constrained('citta');
+            $table->foreignId('user_id')->constrained('users');
+            $table->unique(['citta_id', 'user_id']);
         });
     }
 
