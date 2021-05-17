@@ -20,6 +20,7 @@ class CreateLikeTable extends Migration
             $table->bigIncrements('id');
             $table->foreignId('citta_id')->constrained('citta');
             $table->foreignId('user_id')->constrained('users');
+            $table->unique(['citta_id','user_id']);
         });
     }
 
