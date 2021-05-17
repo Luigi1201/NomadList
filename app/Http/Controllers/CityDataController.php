@@ -18,6 +18,6 @@ class CityDataController extends Controller
         $Info_generali = Info_generali::where('citta_id', $Info_citta[0]['id'])->get();
         $Info_meteo = Info_meteo::where('citta_id', $Info_citta[0]['id'])->get();
         $Likes = Like::all();
-        return view( 'admin.città' , ['Info_citta' => $Info_citta, 'Info_generali' => $Info_generali, 'Info_meteo' => $Info_meteo, 'Likes' => $Likes]);
+        return view( 'admin.città' , ['Info_citta' => $Info_citta, 'Info_generali' => $Info_generali, 'Info_meteo' => $Info_meteo, 'likes' => $Likes]);
     }
 }

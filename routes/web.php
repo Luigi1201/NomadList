@@ -17,7 +17,7 @@ use App\Http\Controllers\LikeController;
 |
 */
 
-Route::get('/',[CittaHomeController::class,'datiCitta']);
+Route::get('/',[CittaHomeController::class,'datiCitta'])->name('homepage');
 
 Route::get('login',[UserAuthController::class,'login'])->middleware('AlreadyLogged');
 
@@ -33,5 +33,5 @@ Route::get('logout',[UserAuthController::class,'logout']);
 
 Route::get('/{nome}',[CityDataController::class, 'getData'])->middleware('isLogged');
 
-Route::post('/',[LikeController::class, 'likeFunction'])->name('like');
+Route::post('like',[LikeController::class, 'likeFunction'])->name('like');
 

@@ -65,14 +65,23 @@
         @php
             $idCitta = $Info_citta[0]['id'];
             $idUtente = session('LoggedUser');
+            $idCittaUtil = 0;
         @endphp
-        @if (isset($Likes[0]))
-            @if ($Likes[0]['citta_id']==$idCitta && $Likes[0]['user_id']==$idUtente)
+        @if (isset($likes[0]))
+            @for ($i = 0; $i < count($likes); $i++)
+                @if ($likes[$i]['citta_id']==$idCitta && $likes[$i]['user_id']==$idUtente )
+                @php
+                    $idCittaUtil=$likes[$i]['citta_id'];
+                @endphp
+                @endif
+            @endfor
+            @if ($idCittaUtil==$idCitta && $likes[0]['user_id']==$idUtente)
                 Non mi piace più
             @else
                 Mi piace
             @endif
-        @else Mi piace
+        @else
+            Mi piace
         @endif
     </x-slot>
 

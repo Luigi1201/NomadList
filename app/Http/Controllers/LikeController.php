@@ -12,13 +12,13 @@ class LikeController extends Controller
 {
     public function likeFunction(Request $request){
         if(session()->has('LoggedUser')){
-
             $CittaId=$request->CittaId;
             $UtenteId=session('LoggedUser');
 
             //controllo se il like esiste gia
             $like = DB::table('like')
-            ->where("user_id",$UtenteId AND "citta_id", $CittaId)
+            ->where("user_id",$UtenteId)
+            ->where("citta_id", $CittaId)
             ->first();
 
             if($like){
@@ -35,9 +35,12 @@ class LikeController extends Controller
                     'user_id'=>$UtenteId
                 ]);
             }
+            /*
             $likes = Like::all();
             $citta = Citta::all();
-            return view('homepage',['cities' => $citta, "likes" => $likes]);
+            , ['cities' => $citta, "likes" => $likes]
+            */
+            return redirect('/');
         }
     }
 }
