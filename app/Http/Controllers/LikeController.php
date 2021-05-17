@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Like;
-use App\Models\Citta;
 use Illuminate\support\Facades\DB;
 use App\Http\Controllers\CittaHomeController;
 
@@ -35,11 +33,7 @@ class LikeController extends Controller
                     'user_id'=>$UtenteId
                 ]);
             }
-            /*
-            $likes = Like::all();
-            $citta = Citta::all();
-            , ['cities' => $citta, "likes" => $likes]
-            */
+            
             return redirect('/');
         }
     }

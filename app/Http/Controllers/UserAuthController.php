@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\support\Facades\Hash;
 use Illuminate\support\Facades\DB;
+use App\Models\Like;
+use App\Models\Citta;
 use App\Models\User;
 
 class UserAuthController extends Controller
@@ -89,7 +91,9 @@ class UserAuthController extends Controller
                 'LoggedUserInfo'=>$user
             ];
         }
-        return view('admin.profile',$data);
+        $likes = Like::all();
+        $cities = Citta::all();
+        return view('admin.profile',$data,['likes' => $likes , 'cities' => $cities]);
     }
 
     function logout(){

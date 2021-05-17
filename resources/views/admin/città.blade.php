@@ -70,18 +70,18 @@
         @if (isset($likes[0]))
             @for ($i = 0; $i < count($likes); $i++)
                 @if ($likes[$i]['citta_id']==$idCitta && $likes[$i]['user_id']==$idUtente )
-                @php
-                    $idCittaUtil=$likes[$i]['citta_id'];
-                @endphp
+                    @php
+                        $idCittaUtil=$likes[$i]['citta_id'];
+                    @endphp
                 @endif
             @endfor
             @if ($idCittaUtil==$idCitta && $likes[0]['user_id']==$idUtente)
-                Non mi piace più
+                Rimuovi
             @else
-                Mi piace
+                Aggiungi
             @endif
         @else
-            Mi piace
+            Aggiungi
         @endif
     </x-slot>
 

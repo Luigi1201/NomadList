@@ -32,6 +32,37 @@
             </div>
             <div class="col-md-3"></div>
         </div>
+        <div class="row" style="margin-top: 5rem">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <h5>Le tue città preferite: </h5>
+                <hr>
+                @php
+                    $idCities=array();
+                @endphp
+                @if (isset($likes[0]))
+                    @foreach ($likes as $like)
+                        @if ($like['user_id'] == session('LoggedUser') )
+                            @php
+                                array_push($idCities,$like['citta_id']);
+                            @endphp
+                        @endif    
+                    @endforeach
+                    @foreach ($idCities as $idCity)
+                        @for ($i=0;$i<count($cities);$i++)
+                            @if ($cities[$i]['id'] == $idCity)
+                                <div class="row">
+                                    <div class="col"> {{$cities[$i]['nome']}} </div>
+                                    <div class="col"><a href="/{{$cities[$i]['nome']}}"><u>visualizza ora</u></a></div>
+                                </div>
+                            @endif 
+                        @endfor
+                    @endforeach
+                @else <p>Non hai ancora città preferite, aggiungile tramite il tasto mi piace!</p>    
+                @endif
+            </div>
+            <div class="col-3"></div>
+        </div>
     </div>
 </body>
 </html>

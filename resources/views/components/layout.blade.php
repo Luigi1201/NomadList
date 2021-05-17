@@ -36,11 +36,27 @@
             </div>
         </div>
     </div> 
-
-    <form action="{{ route('like') }}" method="POST">
-        @csrf
-        <input type="hidden" name="CittaId" value="{{ $cittaLike }}">
-        <button type="submit" class="btn btn-primary btn-lg btn-block">{{$LikeOrNot}}</button>   
-    </form>
+    <div class="container" style="margin-top: 3rem">
+        @if ($LikeOrNot=="Aggiungi")
+        <h5>{{$LikeOrNot}} {{ $nomeCitta }} alla lista delle tue città preferite</h5>
+        @else <h5>{{$LikeOrNot}} {{ $nomeCitta }} dalla lista delle tue città preferite</h5>
+        @endif
+        <hr>
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <form action="{{ route('like') }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="CittaId" value="{{ $cittaLike }}">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">{{$LikeOrNot}}</button>   
+                </form>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+    <div class="container">
+        <h5>Commenti</h5>
+        <hr>
+    </div>
 </body>
 </html>
