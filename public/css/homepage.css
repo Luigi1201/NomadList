@@ -1,0 +1,50 @@
+#videoContainer{
+    width: 100%;
+    position:absolute;
+    top: 0;
+    padding: 0;
+    margin-top: -5rem;
+    z-index: -100;
+}
+
+#video{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+}
+
+.wave{
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    transform: translateY(-60%);
+    fill: white;
+}
+.wave svg {
+    fill: white;
+    width: 102%;
+    margin-left: -1%;
+    height: auto;
+  }
+
+.GoNomad{
+	top: 3.5rem;
+	left:1rem;
+	position: absolute;
+    z-index: 2;
+    width: 65%;
+    overflow: hidden;
+    cursor: pointer;
+}
+.ButtonLogin{
+    z-index: 2;
+    position: fixed;
+    top: 3.5rem;
+    right: 3rem;
+    cursor: pointer;
+}
+
+.col-6 col-md-3{
+    border: 2px solid black;
+}
