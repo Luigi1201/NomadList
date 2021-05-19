@@ -6,6 +6,7 @@ use App\Http\Controllers\UserAuthController;
 use App\Http\Controllers\CityDataController;
 use App\Http\Controllers\CittaHomeController;
 use App\Http\Controllers\LikeController;
+use App\Http\Controllers\RecensioneController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,4 +35,6 @@ Route::get('logout',[UserAuthController::class,'logout']);
 Route::get('/{nome}',[CityDataController::class, 'getData'])->middleware('isLogged');
 
 Route::post('like',[LikeController::class, 'likeFunction'])->name('like');
+
+Route::post('recensione', [RecensioneController::class, 'recensioneFunction'])->name('recensione');
 

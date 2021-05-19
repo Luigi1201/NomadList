@@ -24,6 +24,22 @@
             $Info_citta[0]['stato']
         }}
     </x-slot>
+
+    <x-slot name="numeroLike">
+        @php
+            $contatore=0;
+        @endphp
+        @if (isset($likes[0]))
+            @foreach ($likes as $like)
+                @if ($like['citta_id'] == $Info_citta[0]['id'])
+                    @php
+                        $contatore++
+                    @endphp
+                @endif    
+            @endforeach
+        @endif  
+        {{$contatore}}  
+    </x-slot>
     
     <x-slot name="datiGenerali">
         <div class="row" style="width: 100%">
@@ -85,8 +101,44 @@
         @endif
     </x-slot>
 
-    <x-slot name="cittaLike">
+    <x-slot name="cittaId">
         {{ $Info_citta[0]['id'] }}
+    </x-slot>
+
+    <x-slot name="RecensioniUtenti">
+    @if (isset($Recensioni[0]))
+        @foreach ($Recensioni as $Recensione)
+            @if ( $Recensione['citta_id'] == $Info_citta[0]['id'] )
+            <div class="col-3"></div>
+            <div class="col-6" style="border: 1px solid #ced4da; border-radius: .25rem; margin-top:2rem; box-shadow:  3px  3px 1.5px #fff5ee, -3px -3px 1.5px #fff5ee, 3px -3px 1.5px #fff5ee, -3px  3px 1.5px #fff5ee">
+                <div class="row">
+                    <div class="col"><span style="padding:3%; float:left">
+                        @foreach ($Utenti as $Utente)
+                            @if ($Utente['id'] == $Recensione['user_id'])
+                                <u>{{$Utente['name']}}</u>
+                            @endif
+                        @endforeach
+                    </span></div>
+                </div>
+                <p style="padding:3%">
+                    {{$Recensione['commento']}}
+                </p> 
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col">
+                        @php
+                        $data=($Recensione['updated_at'])->format('Y-m-d')
+                        @endphp
+                        <span style="padding:3%; float:right">
+                            {{$data}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3"></div>
+            @endif 
+        @endforeach
+    @endif    
     </x-slot>
 
 </x-layout>

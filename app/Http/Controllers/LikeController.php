@@ -9,8 +9,8 @@ use App\Http\Controllers\CittaHomeController;
 class LikeController extends Controller
 {
     public function likeFunction(Request $request){
+        $CittaId=$request->CittaId;
         if(session()->has('LoggedUser')){
-            $CittaId=$request->CittaId;
             $UtenteId=session('LoggedUser');
 
             //controllo se il like esiste gia
@@ -33,8 +33,9 @@ class LikeController extends Controller
                     'user_id'=>$UtenteId
                 ]);
             }
-            
-            return redirect('/');
+
+            $nome = DB::table('citta')->where('id', $CittaId)->value('nome');
+            return redirect('/'.$nome);
         }
     }
 }
