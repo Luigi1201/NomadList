@@ -103,8 +103,3 @@ class UserAuthController extends Controller
         }
     }
 }
-
-/*
-Salva dati sessione
-$request ->session()->put('UserData',$user);
-//cancella dati sessione in logout con forget
