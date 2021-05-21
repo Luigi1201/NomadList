@@ -84,17 +84,16 @@
             $idCittaUtil = 0;
         @endphp
         @if (isset($likes[0]))
-            @for ($i = 0; $i < count($likes); $i++)
-                @if ($likes[$i]['citta_id']==$idCitta && $likes[$i]['user_id']==$idUtente )
+            @foreach ( $likes as $like )
+                @if ($like['citta_id']==$idCitta && $like['user_id']==$idUtente )
                     @php
-                        $idCittaUtil=$likes[$i]['citta_id'];
+                        $idCittaUtil=$like['citta_id'];
                     @endphp
                 @endif
-            @endfor
-            @if ($idCittaUtil==$idCitta && $likes[0]['user_id']==$idUtente)
+            @endforeach
+            @if ($idCittaUtil>0)
                 Rimuovi
-            @else
-                Aggiungi
+            @else Aggiungi
             @endif
         @else
             Aggiungi
