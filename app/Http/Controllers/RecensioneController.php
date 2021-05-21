@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\support\Facades\DB;
 
+
 class RecensioneController extends Controller
 {
     public function recensioneFunction(Request $request){
@@ -28,8 +29,28 @@ class RecensioneController extends Controller
 
     public function dropRecensioneFunction(Request $request){
         $IdCitta=$request->CittaId;
+        $query = DB::table('recensione')
+            ->where('user_id', '=', session('LoggedUser'))
+            ->where('citta_id', '=', $IdCitta)
+            ->delete();
         $nome = DB::table('citta')->where('id', $IdCitta)->value('nome');
-        echo $IdCitta;
-        //return redirect('/'.$nome);        
+        if($query){
+            return redirect('/'.$nome)->with('successDelete','Un commento è stato eliminato');
+        }else{
+            return redirect('/'.$nome)->with('failDelete','Qualcosa è andato storto');
+        }          
     }
+
+    /*
+    public function modifyCommentFunction(Request $request){
+        $IdCitta = $request->CittaId;
+        $nuovoCommento = $request->commentModified;
+        $affected = DB::table('recensione')
+              ->where('user_id', '=', session('LoggedUser'))
+              ->where('citta_id', '=', $IdCitta)
+              ->update(['commento' => 1]);
+        $nome = DB::table('citta')->where('id', $IdCitta)->value('nome');
+    }
+    */
+
 }

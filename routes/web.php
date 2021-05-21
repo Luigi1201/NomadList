@@ -41,4 +41,6 @@ Route::post('recensione', [RecensioneController::class, 'recensioneFunction'])->
 
 Route::post('dropComment', [RecensioneController::class, 'dropRecensioneFunction'])->name('dropComment');
 
+Route::post('modifyComment', [RecensioneController::class, 'modifyCommentFunction'])->name('modifyComment');
+
 //Route::get('ricerca',[RicercaController::class, 'ricercaFunction']);

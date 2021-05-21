@@ -43,36 +43,36 @@
     
     <x-slot name="datiGenerali">
         <div class="row" style="width: 100%">
-            <div class="col"> Coordinate: </div>
-            <div class="col">{{ $Info_generali[0]['coordinate'] }}</div>
+            <div class="col" style="margin-top:1rem">🚩Coordinate: </div>
+            <div class="col" style="margin-top:1rem">{{ $Info_generali[0]['coordinate'] }}</div>
             <div class="w-100"></div>
-            <div class="col"> Numero di abitanti: </div>
-            <div class="col">{{ $Info_generali[0]['abitanti'] }}</div>
+            <div class="col" style="margin-top:1rem">👨‍👩‍👧‍👦Numero di abitanti: </div>
+            <div class="col" style="margin-top:1rem">{{ $Info_generali[0]['abitanti'] }}</div>
             <div class="w-100"></div>
-            <div class="col"> Velocità della connessione: </div>
-            <div class="col"> {{ $Info_generali[0]['connessione'] }}Mbps (media) </div>
+            <div class="col" style="margin-top:1rem">📡Velocità della connessione: </div>
+            <div class="col" style="margin-top:1rem">{{ $Info_generali[0]['connessione'] }}Mbps (media) </div>
             <div class="w-100"></div>
-            <div class="col"> Costo della vita (mensile): </div>
-            <div class="col"> {{ $Info_generali[0]['costo_vita'] }} €/mese</div>
+            <div class="col" style="margin-top:1rem">💵Costo della vita (mensile): </div>
+            <div class="col" style="margin-top:1rem"> {{ $Info_generali[0]['costo_vita'] }} €/mese</div>
         </div>
     </x-slot>
     
     <x-slot name="datiMeteo">
         <div class="row">
-            <div class="col">Temperatura: </div>
+            <div class="col">🌡️Temperatura: </div>
             <div class="col">{{ $Info_meteo[0]['temperatura'] }} °C</div>
             <div class="w-100"></div>
-            <div class="col">Umidità: </div>
-            <div class="col">{{ $Info_meteo[0]['umidità'] }}%</div>
+            <div class="col" style="margin-top:1rem">💦Umidità: </div>
+            <div class="col" style="margin-top:1rem">{{ $Info_meteo[0]['umidità'] }}%</div>
             <div class="w-100"></div>
-            <div class="col">Velocità del vento: </div>
-            <div class="col">{{ $Info_meteo[0]['vento'] }} m/s</div>
+            <div class="col" style="margin-top:1rem">💨Velocità del vento: </div>
+            <div class="col" style="margin-top:1rem">{{ $Info_meteo[0]['vento'] }} m/s</div>
             <div class="w-100"></div>
-            <div class="col">Nuvolosità: </div>
-            <div class="col">{{ $Info_meteo[0]['nuvolosità']}}%</div>
+            <div class="col" style="margin-top:1rem">☁️Nuvolosità: </div>
+            <div class="col" style="margin-top:1rem">{{ $Info_meteo[0]['nuvolosità']}}%</div>
             <div class="w-100"></div>
-            <div class="col">Pressione atmosferica: </div>
-            <div class="col">{{ $Info_meteo[0]['pressione_atmosferica']}} hPa</div>
+            <div class="col" style="margin-top:1rem">📏Pressione atmosferica: </div>
+            <div class="col" style="margin-top:1rem">{{ $Info_meteo[0]['pressione_atmosferica']}} hPa</div>
         </div>
     </x-slot>
     
@@ -125,15 +125,34 @@
                 <div class="row">
                     <div class="col">
                         @if ($Recensione['user_id'] == session('LoggedUser'))
-                            <span style="padding:3%; float:left">
-                                <form action="{{ route('dropComment') }}" method="POST">
-                                    @csrf
-                                    <input type="hidden" name="CittaId" value="{{ $Info_citta[0]['id'] }}">
-                                    <button type="submit">🗑️</button>
-                                </form>
-                                
-                                🖋️
-                            </span>  
+                            <div class="row">
+                            <!--
+                                <div class="col">
+                                    @if ($Recensione['user_id'] == session('LoggedUser'))
+                                        <span style="padding:3%; float:left">
+                                            <form action="{{ route('modifyComment') }}" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="CittaId" value="{{ $Info_citta[0]['id'] }}">
+                                                <input type="text" name="commentModified">
+                                                <button type="submit">🖋️</button>
+                                            </form>                    
+                                        </span>  
+                                    @endif
+                                </div>
+                            -->
+                                <div class="col">
+                                    @if ($Recensione['user_id'] == session('LoggedUser'))
+                                        <span style="padding:3%; float:left">
+                                            <form action="{{ route('dropComment') }}" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="CittaId" value="{{ $Info_citta[0]['id'] }}">
+                                                <button type="submit">🗑️</button>
+                                            </form>                    
+                                        </span>  
+                                    @endif
+                                </div>
+                                <div class="col-6"></div>
+                            </div>
                         @endif
                     </div>
                     <div class="col">

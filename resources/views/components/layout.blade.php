@@ -86,6 +86,23 @@
             <div class="col-3"></div> 
         </div>
     </div>
+    <div class="container" style="margin-top:3rem">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                @if(Session::get('failDelete'))
+                    <div class="alert alert-danger">
+                        {{ Session::get('failDelete') }}
+                    </div>
+                @elseif (Session::get('successDelete'))    
+                    <div class="alert alert-success">
+                        {{ Session::get('successDelete') }}
+                    </div>
+                @endif
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
     <div class="container" style="margin-top:3rem; margin-bottom:3rem">
         <hr>
         <div class="row">
