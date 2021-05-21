@@ -79,9 +79,9 @@
                         <input type="hidden" name="CittaId" value="{{ $cittaId }}">
                         <input type="text" name="Recensione" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="...">
                         <div style="margin-top:2rem">
-                        <button type="submit" class="btn btn-primary btn-lg btn-block">Invio</button> 
-                    </div>  
-                </form>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Invio</button>   
+                    </form>
+                </div>
             </div>
             <div class="col-3"></div> 
         </div>

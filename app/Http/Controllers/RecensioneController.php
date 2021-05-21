@@ -25,4 +25,11 @@ class RecensioneController extends Controller
         $nome = DB::table('citta')->where('id', $CittaId)->value('nome');
         return redirect('/'.$nome);
     }
+
+    public function dropRecensioneFunction(Request $request){
+        $IdCitta=$request->CittaId;
+        $nome = DB::table('citta')->where('id', $IdCitta)->value('nome');
+        echo $IdCitta;
+        //return redirect('/'.$nome);        
+    }
 }

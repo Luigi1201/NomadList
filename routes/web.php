@@ -7,6 +7,7 @@ use App\Http\Controllers\CityDataController;
 use App\Http\Controllers\CittaHomeController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\RecensioneController;
+use App\Http\Controllers\RicercaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,3 +39,6 @@ Route::post('like',[LikeController::class, 'likeFunction'])->name('like');
 
 Route::post('recensione', [RecensioneController::class, 'recensioneFunction'])->name('recensione');
 
+Route::post('dropComment', [RecensioneController::class, 'dropRecensioneFunction'])->name('dropComment');
+
+//Route::get('ricerca',[RicercaController::class, 'ricercaFunction']);

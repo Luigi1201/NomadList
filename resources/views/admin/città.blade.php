@@ -127,8 +127,13 @@
                     <div class="col">
                         @if ($Recensione['user_id'] == session('LoggedUser'))
                             <span style="padding:3%; float:left">
-                                <a href="">🗑️ </a>
-                                <a href="">🖋️</a>
+                                <form action="{{ route('dropComment') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="CittaId" value="{{ $Info_citta[0]['id'] }}">
+                                    <button type="submit">🗑️</button>
+                                </form>
+                                
+                                🖋️
                             </span>  
                         @endif
                     </div>
