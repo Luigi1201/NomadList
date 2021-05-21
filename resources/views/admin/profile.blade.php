@@ -63,6 +63,46 @@
             </div>
             <div class="col-3"></div>
         </div>
+        <div class="row" style="margin-top: 5rem">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <h5>I tuoi commenti</h5>
+                <hr>
+                @if (isset($recensioni[0]))
+                    @foreach ($recensioni as $recensione)
+                        @if ($recensione['user_id'] == session('LoggedUser') )
+                            <div class="col" style="border: 1px solid #ced4da; border-radius: .25rem; margin-top:2rem; box-shadow:  3px  3px 1.5px #fff5ee, -3px -3px 1.5px #fff5ee, 3px -3px 1.5px #fff5ee, -3px  3px 1.5px #fff5ee">
+                                <p style="padding:3%">
+                                    {{$recensione['commento']}}
+                                </p> 
+                                <div class="row">
+                                    <div class="col">
+                                        @foreach ($cities as $city)
+                                            @if ($city['id'] == $recensione['citta_id'])
+                                                <span style="padding:3%; float:left">
+                                                    Nella città: {{$city['nome']}}
+                                                </span>
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                    <div class="col">
+                                        @php
+                                        $data=($recensione['updated_at'])->format('Y-m-d')
+                                        @endphp
+                                        <span style="padding:3%; float:right">
+                                            {{$data}}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif    
+                    @endforeach
+                @else <p>Non hai ancora postato alcun commento</p>    
+                @endif
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
     </div>
 </body>
 </html>

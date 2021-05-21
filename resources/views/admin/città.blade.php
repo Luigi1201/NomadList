@@ -124,7 +124,14 @@
                     {{$Recensione['commento']}}
                 </p> 
                 <div class="row">
-                    <div class="col"></div>
+                    <div class="col">
+                        @if ($Recensione['user_id'] == session('LoggedUser'))
+                            <span style="padding:3%; float:left">
+                                <a href="">🗑️ </a>
+                                <a href="">🖋️</a>
+                            </span>  
+                        @endif
+                    </div>
                     <div class="col">
                         @php
                         $data=($Recensione['updated_at'])->format('Y-m-d')
