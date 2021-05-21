@@ -96,8 +96,7 @@
                                 </div>
                             </div>
                         @endif    
-                    @endforeach
-                @else <p>Non hai ancora postato alcun commento</p>    
+                    @endforeach 
                 @endif
             </div>
             <div class="col-3"></div>
