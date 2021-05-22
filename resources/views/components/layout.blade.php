@@ -111,5 +111,14 @@
             </div>
         </div>
     </div>
+    <script>
+        const form=document.getElementById("formCommento");
+        form.onsubmit=function(event){
+            event.preventDefault();
+            let commentModified = window.prompt('Inserisci il commento modificato');
+            document.getElementById("qui").value=commentModified;
+            form.submit();
+        }
+    </script>
 </body>
 </html>

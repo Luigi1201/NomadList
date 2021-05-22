@@ -41,16 +41,18 @@ class RecensioneController extends Controller
         }          
     }
 
-    /*
+    
     public function modifyCommentFunction(Request $request){
-        $IdCitta = $request->CittaId;
+        $request->commentModified;
+        /*$IdCitta = $request->CittaId;
         $nuovoCommento = $request->commentModified;
         $affected = DB::table('recensione')
               ->where('user_id', '=', session('LoggedUser'))
               ->where('citta_id', '=', $IdCitta)
               ->update(['commento' => 1]);
         $nome = DB::table('citta')->where('id', $IdCitta)->value('nome');
+        */
     }
-    */
+    
 
 }

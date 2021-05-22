@@ -126,20 +126,18 @@
                     <div class="col">
                         @if ($Recensione['user_id'] == session('LoggedUser'))
                             <div class="row">
-                            <!--
                                 <div class="col">
                                     @if ($Recensione['user_id'] == session('LoggedUser'))
                                         <span style="padding:3%; float:left">
-                                            <form action="{{ route('modifyComment') }}" method="POST">
+                                            <form action="{{ route('modifyComment') }}" method="POST" id="formCommento">
                                                 @csrf
                                                 <input type="hidden" name="CittaId" value="{{ $Info_citta[0]['id'] }}">
-                                                <input type="text" name="commentModified">
+                                                <input type="hidden" name="commentModified" id="qui" >
                                                 <button type="submit">🖋️</button>
                                             </form>                    
                                         </span>  
                                     @endif
                                 </div>
-                            -->
                                 <div class="col">
                                     @if ($Recensione['user_id'] == session('LoggedUser'))
                                         <span style="padding:3%; float:left">
