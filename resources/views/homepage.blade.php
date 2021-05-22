@@ -58,20 +58,14 @@
                             </div>
                             @php 
                                 $IdUser=session('LoggedUser');
-                                $idCittaUtil = 0;
                             @endphp
                             <div style="position: absolute; top: 0; left: 0;width: 10%; height: 10%; object-fit: cover; z-index: 10">
                                 @if (isset($likes[0]))
-                                    @for ($i = 0; $i < count($likes); $i++)
-                                        @if ($likes[$i]['citta_id']==$city['id'] && $likes[$i]['user_id']== $IdUser )
-                                            @php
-                                                $idCittaUtil=$likes[$i]['citta_id'];
-                                            @endphp
-                                        @endif
-                                    @endfor
-                                    @if ( ( $city['id']  ==  $idCittaUtil ) && ( $likes[0]['user_id']  ==  $IdUser ) )    
-                                        <img src="/media/like.jpg" style="position: absolute; top: 0; left: 0;width: 100%; height: 100%; object-fit: cover"/> <!-- opacity:.5-->
-                                    @endif
+                                    @foreach ($likes as $like)
+                                        @if ($like['citta_id']==$city['id'] && $like['user_id']== $IdUser )
+                                            <img src="/media/like.jpg" style="position: absolute; top: 0; left: 0;width: 100%; height: 100%; object-fit: cover"/> <!-- opacity:.5-->
+                                        @endif 
+                                    @endforeach
                                 @endif
                             </div>
                         </div>
