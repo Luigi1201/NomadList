@@ -43,15 +43,18 @@ class RecensioneController extends Controller
 
     
     public function modifyCommentFunction(Request $request){
-        $request->commentModified;
-        /*$IdCitta = $request->CittaId;
-        $nuovoCommento = $request->commentModified;
+        $commentoModificato = $request->commentModified;
+        $IdCitta = $request->CittaId;
         $affected = DB::table('recensione')
               ->where('user_id', '=', session('LoggedUser'))
               ->where('citta_id', '=', $IdCitta)
-              ->update(['commento' => 1]);
+              ->update(['commento' => $commentoModificato]);
         $nome = DB::table('citta')->where('id', $IdCitta)->value('nome');
-        */
+        if($affected){
+            return redirect('/'.$nome)->with('successUpdate','Commento modificato con successo!');
+        }else{
+            return redirect('/'.$nome)->with('failUpdate','Qualcosa è andato storto, modifica non riuscita. Sei sicuro di aver cambiato qualcosa?');
+        }      
     }
     
 

@@ -67,6 +67,21 @@
         <div class="row" style="margin-top: 3rem">
             <div class="col-3"></div>
             <div class="col-6">
+                @if(Session::get('failUpdate'))
+                    <div class="alert alert-danger">
+                        {{ Session::get('failUpdate') }}
+                    </div>
+                @elseif (Session::get('successUpdate'))    
+                    <div class="alert alert-success">
+                        {{ Session::get('successUpdate') }}
+                    </div>
+                @endif
+            </div>
+            <div class="col-3"></div>
+        </div>
+        <div class="row" style="margin-top: 3rem">
+            <div class="col-3"></div>
+            <div class="col-6">
                 <p style="text-align: center">Sei stato in questa città? racconta la tua esperienza!</p>
             </div>
             <div class="col-3"></div> 

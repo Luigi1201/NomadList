@@ -66,7 +66,7 @@
         <div class="row" style="margin-top: 5rem">
             <div class="col-3"></div>
             <div class="col-6">
-                <h5>I tuoi commenti</h5>
+                <h5>I tuoi commenti - Diario di viaggio</h5>
                 <hr>
                 @if (isset($recensioni[0]))
                     @foreach ($recensioni as $recensione)

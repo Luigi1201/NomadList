@@ -133,7 +133,7 @@
                                                 @csrf
                                                 <input type="hidden" name="CittaId" value="{{ $Info_citta[0]['id'] }}">
                                                 <input type="hidden" name="commentModified" id="qui" >
-                                                <button type="submit">🖋️</button>
+                                                <button type="submit" style="cursor:pointer">🖋️</button>
                                             </form>                    
                                         </span>  
                                     @endif
@@ -144,7 +144,7 @@
                                             <form action="{{ route('dropComment') }}" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="CittaId" value="{{ $Info_citta[0]['id'] }}">
-                                                <button type="submit">🗑️</button>
+                                                <button type="submit" style="cursor:pointer">🗑️</button>
                                             </form>                    
                                         </span>  
                                     @endif
