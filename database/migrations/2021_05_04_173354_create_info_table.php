@@ -22,7 +22,10 @@ class CreateInfoTable extends Migration
             $table->bigInteger('abitanti');
             $table->integer('connessione');
             $table->decimal('costo_vita');
-            $table->foreignId('citta_id')->constrained('citta');
+            $table->foreignId('citta_id')
+                ->constrained('citta')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 

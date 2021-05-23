@@ -19,8 +19,8 @@ class CreateVisitaTable extends Migration
             $table->charset = 'utf8mb4';
             $table->bigIncrements('id');
             $table->date('data');
-            $table->foreignId('citta_id')->constrained('citta');
-            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('citta_id')->constrained('citta')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

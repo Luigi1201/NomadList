@@ -23,7 +23,10 @@ class CreateInfoMeteoTable extends Migration
             $table->float('vento', 5, 2);
             $table->integer('nuvolosità');
             $table->integer('pressione_atmosferica');
-            $table->foreignId('citta_id')->constrained('citta');
+            $table->foreignId('citta_id')
+                ->constrained('citta')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 

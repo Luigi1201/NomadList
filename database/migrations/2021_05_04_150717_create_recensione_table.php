@@ -13,7 +13,6 @@ class CreateRecensioneTable extends Migration
      */
     public function up()
     {
-        Schema::enableForeignKeyConstraints();
         Schema::dropIfExists('recensione');
         Schema::create('recensione', function (Blueprint $table) {
             $table->engine = 'InnoDB';
@@ -21,8 +20,8 @@ class CreateRecensioneTable extends Migration
             $table->bigIncrements('id');
             $table->text('commento');
             $table->timestamps($precision = 0);
-            $table->foreignId('citta_id')->constrained('citta');
-            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('citta_id')->constrained('citta')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
