@@ -18,8 +18,9 @@ class LikeRecensioneTable extends Migration
             $table->engine = 'InnoDB';
             $table->charset = 'utf8mb4';
             $table->bigIncrements('id');
-            $table->foreignId('recensione_id')->constrained('recensione')->unique();
-            $table->foreignId('user_id')->constrained('users')->unique();
+            $table->foreignId('recensione_id')->constrained('recensione');
+            $table->foreignId('user_id')->constrained('users');
+            $table->unique(['recensione_id','user_id']);
         });
     }
 
