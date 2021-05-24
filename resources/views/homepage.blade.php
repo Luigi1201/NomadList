@@ -9,7 +9,6 @@
     <title>NomadList — I migliori posti in cui vivere per un nomade digitale</title>
 </head>
 <body leftmargin="0" topmargin="0">
-    <body leftmargin="0" topmargin="0">
     <div class="videoContainer">
         <video autoplay muted loop id="video">
             <source src="media/HeaderVideo.mp4" type="video/mp4">
@@ -36,7 +35,14 @@
 		<svg viewBox="0 0 1440 120">
 			<path d="M1440,21.2101911 L1440,120 L0,120 L0,21.2101911 C120,35.0700637 240,42 360,42 C480,42 600,35.0700637 720,21.2101911 C808.32779,12.416393 874.573633,6.87702029 918.737528,4.59207306 C972.491685,1.8109458 1026.24584,0.420382166 1080,0.420382166 C1200,0.420382166 1320,7.35031847 1440,21.2101911 Z"></path>
 		</svg> 
-	</div>    
+	</div>  
+    <div class="container-fluid" style="margin-top:3rem;display:inline-flex">
+        <form action="/ricerca" style="z-index: 5; width:35%" >
+            @csrf
+            <input type="text" name="nomeCittà" placeholder="Ricerca una città" style="width:77%; z-index: 5;border:1px solid black; border-radius: 10px;">
+            <button type="submit" style="width:20%; cursor:pointer">🔍</button>   
+        </form>
+    </div>  
     <div class="container-fluid" style="margin-top:3rem">
         <div class="row">
             @foreach ($cities as $city)

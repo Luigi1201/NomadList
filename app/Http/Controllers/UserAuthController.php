@@ -7,7 +7,6 @@ use Illuminate\support\Facades\Hash;
 use Illuminate\support\Facades\DB;
 use App\Models\Like;
 use App\Models\Citta;
-use App\Models\User;
 use App\Models\Recensione;
 
 class UserAuthController extends Controller

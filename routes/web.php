@@ -43,4 +43,6 @@ Route::post('dropComment', [RecensioneController::class, 'dropRecensioneFunction
 
 Route::post('modifyComment', [RecensioneController::class, 'modifyCommentFunction'])->name('modifyComment');
 
-//Route::get('ricerca',[RicercaController::class, 'ricercaFunction']);
+Route::get('/ric',function(){
+    return 'homepage';
+});

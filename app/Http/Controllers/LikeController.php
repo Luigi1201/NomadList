@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\support\Facades\DB;
-use App\Http\Controllers\CittaHomeController;
 
 class LikeController extends Controller
 {
@@ -12,7 +11,9 @@ class LikeController extends Controller
         $CittaId=$request->CittaId;
         if(session()->has('LoggedUser')){
             $UtenteId=session('LoggedUser');
-
+            $request->validate([
+                'CittaId'=>'required'
+            ]);
             //controllo se il like esiste gia
             $like = DB::table('like')
             ->where("user_id",$UtenteId)

@@ -40,11 +40,13 @@ class RecensioneController extends Controller
             return redirect('/'.$nome)->with('failDelete','Qualcosa è andato storto');
         }          
     }
-
     
     public function modifyCommentFunction(Request $request){
         $commentoModificato = $request->commentModified;
         $IdCitta = $request->CittaId;
+        $request->validate([
+            'commentModified'=>'required|max:255'
+        ]);
         $affected = DB::table('recensione')
               ->where('user_id', '=', session('LoggedUser'))
               ->where('citta_id', '=', $IdCitta)
