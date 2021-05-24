@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use DB;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 use App\Models\Citta;
 
@@ -112,6 +112,66 @@ class Info_generaliSeeder extends Seeder
             'abitanti' => 	526028,
             'connessione' => 32,
             'costo_vita' => 2280,
+            'citta_id' => $citta_id[0]['id']
+        ]);
+
+        $citta = "Lisbona"; //città a cui fanno riferimento i dati
+        $citta_id = Citta::where('nome', $citta)->get("id"); //id della tupla con nome=Lisbona
+        DB::table('info_generali')->insert([
+            'coordinate' => 'lon: -9.1333, lat: 38.7167',
+            'abitanti' => 	526500,
+            'connessione' => 27,
+            'costo_vita' => 1682,
+            'citta_id' => $citta_id[0]['id']
+        ]);
+
+        $citta = "Brasov"; //città a cui fanno riferimento i dati
+        $citta_id = Citta::where('nome', $citta)->get("id"); //id della tupla con nome=Brasov
+        DB::table('info_generali')->insert([
+            'coordinate' => 'lon: 25.3333, lat: 45.75',
+            'abitanti' => 	222361,
+            'connessione' => 30,
+            'costo_vita' => 1166,
+            'citta_id' => $citta_id[0]['id']
+        ]);
+
+        $citta = "Barcellona"; //città a cui fanno riferimento i dati
+        $citta_id = Citta::where('nome', $citta)->get("id"); //id della tupla con nome=Barcellona
+        DB::table('info_generali')->insert([
+            'coordinate' => 'lon: 2.159, lat: 41.3888',
+            'abitanti' => 	1582436,
+            'connessione' => 31,
+            'costo_vita' => 2519,
+            'citta_id' => $citta_id[0]['id']
+        ]);
+
+        $citta = "Mosca"; //città a cui fanno riferimento i dati
+        $citta_id = Citta::where('nome', $citta)->get("id"); //id della tupla con nome=Mosca
+        DB::table('info_generali')->insert([
+            'coordinate' => 'lon: 37.6156, lat: 55.7522',
+            'abitanti' => 	12606070,
+            'connessione' => 16,
+            'costo_vita' => 1536,
+            'citta_id' => $citta_id[0]['id']
+        ]);
+
+        $citta = "Sydney"; //città a cui fanno riferimento i dati
+        $citta_id = Citta::where('nome', $citta)->get("id"); //id della tupla con nome=Sydney
+        DB::table('info_generali')->insert([
+            'coordinate' => 'lon: 151.2073, lat: -33.8679',
+            'abitanti' => 	6031215,
+            'connessione' => 19,
+            'costo_vita' => 3228,
+            'citta_id' => $citta_id[0]['id']
+        ]);
+
+        $citta = "Vienna"; //città a cui fanno riferimento i dati
+        $citta_id = Citta::where('nome', $citta)->get("id"); //id della tupla con nome=Vienna
+        DB::table('info_generali')->insert([
+            'coordinate' => 'lon: 16.3721, lat: 48.2085',
+            'abitanti' => 	1929618,
+            'connessione' => 39,
+            'costo_vita' => 2376,
             'citta_id' => $citta_id[0]['id']
         ]);
     }

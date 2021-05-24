@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 
 class CittaSeeder extends Seeder
@@ -62,5 +62,36 @@ class CittaSeeder extends Seeder
             'nome' => 'Atlanta',
             'stato' => 'Georgia'
         ]);
+
+        DB::table('citta')->insert([
+            'nome' => 'Lisbona',
+            'stato' => 'Portogallo'
+        ]);
+
+        DB::table('citta')->insert([
+            'nome' => 'Brasov',
+            'stato' => 'Romania'
+        ]);
+
+        DB::table('citta')->insert([
+            'nome' => 'Barcellona',
+            'stato' => 'Spagna'
+        ]);
+
+        DB::table('citta')->insert([
+            'nome' => 'Mosca',
+            'stato' => 'Russia'
+        ]);
+
+        DB::table('citta')->insert([
+            'nome' => 'Sydney',
+            'stato' => 'Australia'
+        ]);
+
+        DB::table('citta')->insert([
+            'nome' => 'Vienna',
+            'stato' => 'Austria'
+        ]);
+
     }
 }
