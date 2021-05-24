@@ -79,6 +79,19 @@
             </div>
             <div class="col-3"></div>
         </div>
+        @if ($errors->any())
+            <div class="row" style="margin-top:2rem">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <div class="alert alert-danger">
+                        @foreach ($errors->all() as $error)
+                            {{ $error }}                                 
+                        @endforeach
+                    </div>
+                </div>
+                <div class="col-3"></div>
+            </div>
+        @endif
         <div class="row" style="margin-top: 3rem">
             <div class="col-3"></div>
             <div class="col-6">

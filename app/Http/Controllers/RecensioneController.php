@@ -10,10 +10,13 @@ class RecensioneController extends Controller
 {
     public function recensioneFunction(Request $request){
         if(session()->has('LoggedUser')){
+            $request->validate([
+                'CittaId'=>'required',
+                'Recensione'=>'required'
+            ]);
             $CittaId=$request->CittaId;
             $UtenteId=session('LoggedUser');
             $Recensione=$request->Recensione;
-            //$tabellaRecensioni = DB::table('recensione');
             $query = DB::table("recensione")
                 ->insert([
                     'commento'=> $Recensione,
@@ -28,6 +31,9 @@ class RecensioneController extends Controller
     }
 
     public function dropRecensioneFunction(Request $request){
+        $request->validate([
+            'CittaId'=>'required'
+        ]);
         $IdCitta=$request->CittaId;
         $query = DB::table('recensione')
             ->where('user_id', '=', session('LoggedUser'))
