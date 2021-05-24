@@ -19,8 +19,6 @@ use App\Http\Controllers\RicercaController;
 |
 */
 
-Route::post('/ricerca',[RicercaController::class, 'ricercaFunction']);
-
 Route::get('/',[CittaHomeController::class,'datiCitta'])->name('homepage');
 
 Route::post('newUser',[UserAuthController::class,'newUser'])->name('auth.newUser');
@@ -42,3 +40,5 @@ Route::middleware('isLogged') ->group(function(){
     Route::post('dropComment', [RecensioneController::class, 'dropRecensioneFunction'])->name('dropComment');
     Route::post('modifyComment', [RecensioneController::class, 'modifyCommentFunction'])->name('modifyComment');
 });
+
+Route::post('ricerca',[RicercaController::class, 'ricercaFunction']);

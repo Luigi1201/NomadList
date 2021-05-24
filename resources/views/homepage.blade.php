@@ -37,11 +37,31 @@
 		</svg> 
 	</div>  
     <div class="container-fluid" style="margin-top:3rem;display:inline-flex">
-        <form action="/ricerca" style="z-index: 5; width:35%" >
-            @csrf
-            <input type="text" name="nomeCittà" placeholder="Ricerca una città" style="width:77%; z-index: 5;border:1px solid black; border-radius: 10px;">
-            <button type="submit" style="width:20%; cursor:pointer">🔍</button>   
-        </form>
+        <div class="row" style="width: 100%">
+            <div class="col col-lg-4"">
+                <form action="/ricerca" method="post" style="z-index: 5" >
+                    @csrf
+                    <input type="text" name="cityName" placeholder="Ricerca una città" style="width:77%; z-index: 5;border:1px solid black; border-radius: 10px;">
+                    <button type="submit" style="width:20%; cursor:pointer">🔍</button>   
+                </form>
+            </div>
+            <div class="col" >
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        @foreach ($errors->all() as $error)
+                            {{ $error }}                                 
+                        @endforeach
+                    </div>
+                @endif
+                <div class="results">
+                    @if(Session::get('InvalidName'))
+                        <div class="alert alert-danger">
+                            {{ Session::get('InvalidName') }}
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
     </div>  
     <div class="container-fluid" style="margin-top:3rem">
         <div class="row">
