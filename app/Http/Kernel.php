@@ -15,7 +15,7 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middleware = [
-        // \App\Http\Middleware\TrustHosts::class,
+        \App\Http\Middleware\TrustHosts::class,
         \App\Http\Middleware\TrustProxies::class,
         \Fruitcake\Cors\HandleCors::class,
         \App\Http\Middleware\PreventRequestsDuringMaintenance::class,
@@ -54,7 +54,7 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'isLogged' => \App\Http\Middleware\AuthCheck::class,
+        'isLogged' => \App\Http\Middleware\AuthenticationChek::class,
         'AlreadyLogged' => \App\Http\Middleware\NoLoginRegister::class,
         'auth' => \App\Http\Middleware\Autenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
