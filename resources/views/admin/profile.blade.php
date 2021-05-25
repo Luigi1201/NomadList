@@ -63,7 +63,7 @@
             </div>
             <div class="col-3"></div>
         </div>
-        <div class="row" style="margin-top: 5rem">
+        <div class="row" style="margin-top: 5rem;margin-bottom: 5rem">
             <div class="col-3"></div>
             <div class="col-6">
                 <h5>I tuoi commenti - Diario di viaggio</h5>

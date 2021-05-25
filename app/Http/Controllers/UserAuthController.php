@@ -22,8 +22,8 @@ class UserAuthController extends Controller
     function newUser(Request $request){
         //controllo di validazione della richiesta
         $request->validate([
-            'name'=>'required|unique:users',
-            'email'=>'required|email|unique:users',
+            'name'=>'required|unique:users|min:3|max:20',
+            'email'=>'required|email|unique:users|max:50',
             'password'=>'required|min:5|max:12'
         ]);
 
