@@ -14,6 +14,13 @@
             <div class="col-md-4 col-md-offset-4">
                 <h3>Login</h3>
                 <hr>
+                <div class="results">
+                    @if(Session::get('status'))
+                        <div class="alert alert-success">
+                            {{ Session::get('status') }}
+                        </div>
+                    @endif
+                </div>
                 <form action="{{ route('auth.check') }}" method="POST">
                     @csrf
                     <div class="results">
@@ -45,8 +52,11 @@
                         <button type="submit" class="btn btn-block btn-danger btn-lg">Login</button>
                     </div>
                     <br>
+                    <a href="forgot-password">Password dimenticata</a>
+                    <br>
                     <a href="register">Crea un nuovo account</a>
                 </form>
+                <br>
                 <a href="/">Homepage</a>
             </div>
             <div class="col-md-4"></div>

@@ -8,10 +8,39 @@
     <title>Recupero password</title>
 </head>
 <body>
-    <form action='forgot-password' method="POST">
-        @csrf
-        <input name="email" type="text" placeholder="Inserire email">
-        <button type="submit">Invia email</button>
-    </form>
+    <div class="container" style= "margin-top:45px">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4 col-md-offset-4">
+                <h3>Recupero password</h3>
+                <hr>
+                <div class="results">
+                    @if(Session::get('status'))
+                        <div class="alert alert-success">
+                            {{ Session::get('status') }}
+                        </div>
+                    @endif
+                </div>
+                <form action='forgot-password' method="POST">
+                    @csrf
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" name="email" placeholder="Inserisci l'indirizzo email dell'account">
+                        <span class="text-danger">
+                            @error('email')
+                                {{ $message }}
+                            @enderror
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-block btn-danger btn-lg">Invio</button>
+                    </div>
+                </form>
+                <br>
+                <a href="/">Homepage</a>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
 </body>
 </html>
