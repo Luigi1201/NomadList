@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
             CittaSeeder::class,
             Info_generaliSeeder::class,
             Info_meteoSeeder::class,
-            UserSeeder::class
+            UserSeeder::class,
+            LikeSeeder::class
         ]);
     }
 }

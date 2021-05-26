@@ -71,6 +71,54 @@ class Info_meteoSeeder extends Seeder
             'citta_id' => $citta_id[0]['id']
         ]);
 
+        $citta = "Barcellona"; //Città a cui sono riferiti i dati
+        $json = getJson($citta); //dati meteo raccolti
+        $citta_id = Citta::where('nome', $citta)->get("id"); //id della tupla con nome=Barcellona
+        DB::table('info_meteo')->insert([
+            'temperatura' => (($json['main']['temp'])-273.15),
+            'umidità' => $json['main']['humidity'],
+            'vento' => $json['wind']['speed'],
+            'nuvolosità' => $json['clouds']['all'],
+            'pressione_atmosferica' => $json['main']['pressure'],
+            'citta_id' => $citta_id[0]['id']
+        ]);
+
+        $citta = "Mosca"; //Città a cui sono riferiti i dati
+        $json = getJson($citta); //dati meteo raccolti
+        $citta_id = Citta::where('nome', $citta)->get("id"); //id della tupla con nome=Mosca
+        DB::table('info_meteo')->insert([
+            'temperatura' => (($json['main']['temp'])-273.15),
+            'umidità' => $json['main']['humidity'],
+            'vento' => $json['wind']['speed'],
+            'nuvolosità' => $json['clouds']['all'],
+            'pressione_atmosferica' => $json['main']['pressure'],
+            'citta_id' => $citta_id[0]['id']
+        ]);
+
+        $citta = "Sydney"; //Città a cui sono riferiti i dati
+        $json = getJson($citta); //dati meteo raccolti
+        $citta_id = Citta::where('nome', $citta)->get("id"); //id della tupla con nome=Sydney
+        DB::table('info_meteo')->insert([
+            'temperatura' => (($json['main']['temp'])-273.15),
+            'umidità' => $json['main']['humidity'],
+            'vento' => $json['wind']['speed'],
+            'nuvolosità' => $json['clouds']['all'],
+            'pressione_atmosferica' => $json['main']['pressure'],
+            'citta_id' => $citta_id[0]['id']
+        ]);
+
+        $citta = "Vienna"; //Città a cui sono riferiti i dati
+        $json = getJson($citta); //dati meteo raccolti
+        $citta_id = Citta::where('nome', $citta)->get("id"); //id della tupla con nome=Vienna
+        DB::table('info_meteo')->insert([
+            'temperatura' => (($json['main']['temp'])-273.15),
+            'umidità' => $json['main']['humidity'],
+            'vento' => $json['wind']['speed'],
+            'nuvolosità' => $json['clouds']['all'],
+            'pressione_atmosferica' => $json['main']['pressure'],
+            'citta_id' => $citta_id[0]['id']
+        ]);
+
         $citta = "Seoul"; //Città a cui sono riferiti i dati
         $json = getJson($citta); //dati meteo raccolti
         $citta_id = Citta::where('nome', $citta)->get("id"); //id della tupla con nome=Seoul
@@ -167,52 +215,5 @@ class Info_meteoSeeder extends Seeder
             'citta_id' => $citta_id[0]['id']
         ]);
 
-        $citta = "Barcellona"; //Città a cui sono riferiti i dati
-        $json = getJson($citta); //dati meteo raccolti
-        $citta_id = Citta::where('nome', $citta)->get("id"); //id della tupla con nome=Barcellona
-        DB::table('info_meteo')->insert([
-            'temperatura' => (($json['main']['temp'])-273.15),
-            'umidità' => $json['main']['humidity'],
-            'vento' => $json['wind']['speed'],
-            'nuvolosità' => $json['clouds']['all'],
-            'pressione_atmosferica' => $json['main']['pressure'],
-            'citta_id' => $citta_id[0]['id']
-        ]);
-
-        $citta = "Mosca"; //Città a cui sono riferiti i dati
-        $json = getJson($citta); //dati meteo raccolti
-        $citta_id = Citta::where('nome', $citta)->get("id"); //id della tupla con nome=Mosca
-        DB::table('info_meteo')->insert([
-            'temperatura' => (($json['main']['temp'])-273.15),
-            'umidità' => $json['main']['humidity'],
-            'vento' => $json['wind']['speed'],
-            'nuvolosità' => $json['clouds']['all'],
-            'pressione_atmosferica' => $json['main']['pressure'],
-            'citta_id' => $citta_id[0]['id']
-        ]);
-
-        $citta = "Sydney"; //Città a cui sono riferiti i dati
-        $json = getJson($citta); //dati meteo raccolti
-        $citta_id = Citta::where('nome', $citta)->get("id"); //id della tupla con nome=Sydney
-        DB::table('info_meteo')->insert([
-            'temperatura' => (($json['main']['temp'])-273.15),
-            'umidità' => $json['main']['humidity'],
-            'vento' => $json['wind']['speed'],
-            'nuvolosità' => $json['clouds']['all'],
-            'pressione_atmosferica' => $json['main']['pressure'],
-            'citta_id' => $citta_id[0]['id']
-        ]);
-
-        $citta = "Vienna"; //Città a cui sono riferiti i dati
-        $json = getJson($citta); //dati meteo raccolti
-        $citta_id = Citta::where('nome', $citta)->get("id"); //id della tupla con nome=Vienna
-        DB::table('info_meteo')->insert([
-            'temperatura' => (($json['main']['temp'])-273.15),
-            'umidità' => $json['main']['humidity'],
-            'vento' => $json['wind']['speed'],
-            'nuvolosità' => $json['clouds']['all'],
-            'pressione_atmosferica' => $json['main']['pressure'],
-            'citta_id' => $citta_id[0]['id']
-        ]);
     }
 }

@@ -34,6 +34,26 @@ class CittaSeeder extends Seeder
         ]);
 
         DB::table('citta')->insert([
+            'nome' => 'Barcellona',
+            'stato' => 'Spagna'
+        ]);
+
+        DB::table('citta')->insert([
+            'nome' => 'Mosca',
+            'stato' => 'Russia'
+        ]);
+
+        DB::table('citta')->insert([
+            'nome' => 'Sydney',
+            'stato' => 'Australia'
+        ]);
+
+        DB::table('citta')->insert([
+            'nome' => 'Vienna',
+            'stato' => 'Austria'
+        ]);
+
+        DB::table('citta')->insert([
             'nome' => 'Seoul',
             'stato' => 'Corea del Sud '
         ]);
@@ -73,25 +93,6 @@ class CittaSeeder extends Seeder
             'stato' => 'Romania'
         ]);
 
-        DB::table('citta')->insert([
-            'nome' => 'Barcellona',
-            'stato' => 'Spagna'
-        ]);
-
-        DB::table('citta')->insert([
-            'nome' => 'Mosca',
-            'stato' => 'Russia'
-        ]);
-
-        DB::table('citta')->insert([
-            'nome' => 'Sydney',
-            'stato' => 'Australia'
-        ]);
-
-        DB::table('citta')->insert([
-            'nome' => 'Vienna',
-            'stato' => 'Austria'
-        ]);
 
     }
 }
