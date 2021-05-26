@@ -56,7 +56,7 @@ class UserAuthController extends Controller
 
         //controllo di validazione della richiesta
         $request->validate([
-            'email'=>'required|email',
+            'email'=>'required|email|max:50',
             'password'=>'required|min:5|max:12'
         ]);
 
