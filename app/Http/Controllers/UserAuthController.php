@@ -1,10 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\support\Facades\Hash;
-use Illuminate\support\Facades\DB;
 use App\Models\Like;
 use App\Models\Citta;
 use App\Models\Recensione;
