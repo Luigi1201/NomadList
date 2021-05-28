@@ -27,19 +27,15 @@ class UserAuthController extends Controller
             'password'=>'required|min:5|max:12'
         ]);
 
-        // METODO1 se la richiesta è valida:    
+        /* METODO1 se la richiesta è valida:    
         $user = new User;
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $query = $user->save();
-        if($query){
-            return back()->with('success','Registrazione effettuata con successo');
-        }else{
-            return back()->with('fail','Qualcosa è andato storto');
-        }
+        */
 
-        /* METODO 2 (con query builder)
+        // METODO 2 (con query builder)
         $query = DB::table("users")
             ->insert([
                 'name'=>$request->name,
@@ -65,14 +61,13 @@ class UserAuthController extends Controller
         ]);
 
         //se la richiesta è valida: 
-        // METODO1 
-        $user = User::where('email','=',$request->email)->first();
+        // METODO1 $user = User::where('email','=',$request->email)->first();
         
-        /*METODO2 :
+        //METODO2 :
         $user = DB::table('users')
             ->where("email",$request->email)
             ->first();
-        */
+        
         if($user){
             if(Hash::check($request->password,$user->password)){
                 $request->session()->put('LoggedUser',$user->id);
@@ -87,16 +82,14 @@ class UserAuthController extends Controller
 
     function profile(Request $request){
         if(session()->has('LoggedUser')){
-            // METODO1 
-            $user = User::where('id','=',session('LoggedUser'))->first();
-            /*METODO2 : 
+            // METODO1 $user = User::where('id','=',session('LoggedUser'))->first();
+            //METODO2 : 
             $user = DB::table('users')
                 ->where('id',session('LoggedUser'))
                 ->first();
             $data = [
                 'LoggedUserInfo'=>$user
             ];
-            */
         }
         $likes = Like::all();
         $cities = Citta::all();
