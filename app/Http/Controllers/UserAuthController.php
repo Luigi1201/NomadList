@@ -48,7 +48,7 @@ class UserAuthController extends Controller
         }else{
             return back()->with('fail','Qualcosa è andato storto');
         }
-        */
+    
         
     }
 
