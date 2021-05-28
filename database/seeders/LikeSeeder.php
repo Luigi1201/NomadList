@@ -15,8 +15,19 @@ class LikeSeeder extends Seeder
      */
     public function run()
     {
-        //factory(Like::class,50)->create();
-        Like::factory()->count(1)->create();
-        //CREA FUNZIONE PER VINCOLO UNIQUE
+        //Like::factory()->count(30)->create();    //METODO1 ERROR
+
+        /*METODO 2 CON ERROR
+        $ls=Like::factory()->count(20)->create();
+        foreach ($ls as $l) {
+            repeat:
+            try {
+                $l->save();
+            } catch (\Illuminate\Database\QueryException $e) {
+                $l = Like::factory()->create();;
+                goto repeat;
+            }
+        }
+        */
     }
 }
