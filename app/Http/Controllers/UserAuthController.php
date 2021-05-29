@@ -26,44 +26,26 @@ class UserAuthController extends Controller
             'email'=>'required|email|unique:users|max:50',
             'password'=>'required|min:5|max:12'
         ]);
-
-        /* METODO1 se la richiesta è valida:    
-        $user = new User;
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
-        $query = $user->save();
-        */
-
-        // METODO 2 (con query builder)
         $query = DB::table("users")
             ->insert([
                 'name'=>$request->name,
                 'email'=>$request->email,
                 'password'=>Hash::make($request->password)
             ]);    
-
         if($query){
             return back()->with('success','Registrazione effettuata con successo');
         }else{
             return back()->with('fail','Qualcosa è andato storto');
         }
-    
-        
     }
 
-    function check(Request $request){
+    function checkLogin(Request $request){
 
         //controllo di validazione della richiesta
         $request->validate([
             'email'=>'required|email|max:50',
             'password'=>'required|min:5|max:12'
         ]);
-
-        //se la richiesta è valida: 
-        // METODO1 $user = User::where('email','=',$request->email)->first();
-        
-        //METODO2 :
         $user = DB::table('users')
             ->where("email",$request->email)
             ->first();
@@ -82,8 +64,6 @@ class UserAuthController extends Controller
 
     function profile(Request $request){
         if(session()->has('LoggedUser')){
-            // METODO1 $user = User::where('id','=',session('LoggedUser'))->first();
-            //METODO2 : 
             $user = DB::table('users')
                 ->where('id',session('LoggedUser'))
                 ->first();

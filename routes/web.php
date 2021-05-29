@@ -31,7 +31,7 @@ Route::get('/',[CittaHomeController::class,'datiCitta'])->name('homepage');
 
 Route::post('newUser',[UserAuthController::class,'newUser'])->name('auth.newUser');
 
-Route::post('check',[UserAuthController::class,'check'])->name('auth.check');
+Route::post('check',[UserAuthController::class,'checkLogin'])->name('auth.check');
 
 Route::get('logout',[UserAuthController::class,'logout']);
 
@@ -96,4 +96,3 @@ Route::middleware('isLogged') ->group(function(){
     Route::post('dropComment', [RecensioneController::class, 'dropRecensioneFunction'])->name('dropComment');
     Route::post('modifyComment', [RecensioneController::class, 'modifyCommentFunction'])->name('modifyComment');
 });
-
