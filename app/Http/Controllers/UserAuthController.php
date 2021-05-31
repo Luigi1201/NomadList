@@ -8,6 +8,7 @@ use Illuminate\support\Facades\DB;
 use App\Models\Like;
 use App\Models\Citta;
 use App\Models\Recensione;
+use App\Models\Visita;
 
 class UserAuthController extends Controller
 {
@@ -74,7 +75,8 @@ class UserAuthController extends Controller
         $likes = Like::all();
         $cities = Citta::all();
         $recensioni = Recensione::all();
-        return view('admin.profile',$data,['likes' => $likes , 'cities' => $cities, 'recensioni' => $recensioni]);
+        $visite = Visita::all();
+        return view('admin.profile',$data,['likes' => $likes , 'cities' => $cities, 'recensioni' => $recensioni,'visite' => $visite]);
     }
 
     function logout(){

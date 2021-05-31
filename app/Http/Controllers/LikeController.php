@@ -28,7 +28,7 @@ class LikeController extends Controller
                     ->delete();
             }else{
                 //Inserimento like nel db
-                $query = DB::table("like")
+                DB::table("like")
                 ->insert([
                     'citta_id'=> $CittaId,
                     'user_id'=>$UtenteId

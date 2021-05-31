@@ -25,7 +25,6 @@
                             <td>{{ $LoggedUserInfo->name }}</td>
                             <td>{{ $LoggedUserInfo->email }}</td>
                             <td><a href="logout">Logout</a></td>
-                            <td><a href="/">Homepage</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -34,7 +33,7 @@
         </div>
         <div class="row" style="margin-top: 5rem">
             <div class="col-3"></div>
-            <div class="col-6">
+            <div class="col-md-6 col-md-offset-3">
                 <h5>Le tue città preferite: </h5>
                 <hr>
                 @php
@@ -52,7 +51,7 @@
                         @for ($i=0;$i<count($cities);$i++)
                             @if ($cities[$i]['id'] == $idCity)
                                 <div class="row">
-                                    <div class="col"> {{$cities[$i]['nome']}} </div>
+                                    <div class="col"> 🌆{{$cities[$i]['nome']}} </div>
                                     <div class="col"><a href="/{{$cities[$i]['nome']}}"><u>visualizza ora</u></a></div>
                                 </div>
                             @endif 
@@ -63,10 +62,10 @@
             </div>
             <div class="col-3"></div>
         </div>
-        <div class="row" style="margin-top: 5rem;margin-bottom: 5rem">
+        <div class="row" style="margin-top: 5rem;margin-bottom:5rem">
             <div class="col-3"></div>
-            <div class="col-6">
-                <h5>I tuoi commenti - Diario di viaggio</h5>
+            <div class="col-md-6 col-md-offset-3">
+                <h5>I tuoi commenti - Diario di viaggio ✒️</h5>
                 <hr>
                 @if (isset($recensioni[0]))
                     @foreach ($recensioni as $recensione)
@@ -101,7 +100,88 @@
             </div>
             <div class="col-3"></div>
         </div>
-    </div>
+        <!-- DA COMPLETARE
+        <div class="row" style="margin-top: 5rem;margin-bottom: 5rem">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <h5>Le città che hai visitato:</h5>
+                <hr>
+                @foreach ($visite as $visita)
+                    @if ($visita->user_id == session('LoggedUser'))
+                        @foreach ($cities as $city)
+                            @if ($visita->citta_id == $city->id)
+                                <div class="row">
+                                    <div class="col">
+                                        {{$city->nome}}, il giorno {{$visita->data}}
+                                    </div>
+                                    <div class="col">
+                                        <a href="/.{{$city->nome}}"><u>visualizza ora</u></a>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
+                    @endif
+                @endforeach
+                <br>
+                <h6 style="margin-top:2rem">Aggiungi una nuova città alla lista!</h6>
+                <div class="aggiunta/rimozione" style="border: 1px solid #ced4da;border-radius:.25rem">
+                    <form action="{{ route('visita') }}" method="POST" style="margin:3%">
+                        @csrf
+                        <div class="results">
+                            @if(Session::get('erroreInserimento'))
+                                <div class="alert alert-danger">
+                                    {{ Session::get('erroreInserimento') }}
+                                </div>
+                            @endif
+                            @if(Session::get('inserted'))
+                                <div class="alert alert-success">
+                                    {{ Session::get('inserted') }}
+                                </div>
+                            @endif
+                            @if(Session::get('esisteGià'))
+                                <div class="alert alert-danger">
+                                    {{ Session::get('esisteGià') }}
+                                </div>
+                            @endif
+                            @if(Session::get('dataNonValida'))
+                                <div class="alert alert-danger">
+                                    {{ Session::get('dataNonValida') }}
+                                </div>
+                             @endif
+                        </div>
+                        <label for="data" style="width: 100%">
+                            <div class="row">
+                                <div class="col">Quando è avvenuta la visita? </div>
+                                <div class="col"><input type="date" name="data"></div>
+                            </div>                   
+                        </label>
+                        <span class="text-danger" style="width:100%">
+                            @error('data')
+                                {{ $message }}
+                            @enderror  
+                        </span>
+                        <label for="citta"  style="width: 100%">
+                            <div class="row">
+                                <div class="col">In quale città? </div>
+                                <div class="col">
+                                    <input type="text" name="citta" placeholder="inserire la città">
+                                </div>
+                            </div> 
+                        </label>
+                        <span class="text-danger" style="width:100%">
+                            @error('citta')
+                                {{ $message }}
+                            @enderror  
+                        </span>
+                        <button type="submit" class="btn btn-light" style="width: 100%; text-align:center">Seleziona</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    -->
+    <hr>
+    <section style="margin-bottom: 3rem"><a href="/"> ☚ Torna all'homepage</a></section>
     </div>
 </body>
 </html>

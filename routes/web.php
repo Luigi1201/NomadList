@@ -8,6 +8,7 @@ use App\Http\Controllers\CittaHomeController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\RecensioneController;
 use App\Http\Controllers\RicercaController;
+use App\Http\Controllers\VisitaController;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
@@ -28,6 +29,8 @@ use Illuminate\Support\Str;
 Route::post('ricerca',[RicercaController::class, 'ricercaFunction']);
 
 Route::get('/',[CittaHomeController::class,'datiCitta'])->name('homepage');
+
+//DA COMPLETARE Route::post('visita',[VisitaController::class,'visitaFunction'])->name('visita');
 
 Route::post('newUser',[UserAuthController::class,'newUser'])->name('auth.newUser');
 
