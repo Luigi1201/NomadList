@@ -30,8 +30,6 @@ Route::post('ricerca',[RicercaController::class, 'ricercaFunction']);
 
 Route::get('/',[CittaHomeController::class,'datiCitta'])->name('homepage');
 
-//DA COMPLETARE Route::post('visita',[VisitaController::class,'visitaFunction'])->name('visita');
-
 Route::post('newUser',[UserAuthController::class,'newUser'])->name('auth.newUser');
 
 Route::post('check',[UserAuthController::class,'checkLogin'])->name('auth.check');
