@@ -144,6 +144,7 @@
                                             <form action="{{ route('dropComment') }}" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="CittaId" value="{{ $Info_citta[0]['id'] }}">
+                                                <input type="hidden" name="Commento" value="{{ $Recensione->commento }}">
                                                 <button type="submit" style="cursor:pointer">🗑️</button>
                                             </form>                    
                                         </span>  

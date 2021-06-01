@@ -32,12 +32,15 @@ class RecensioneController extends Controller
 
     public function dropRecensioneFunction(Request $request){
         $request->validate([
-            'CittaId'=>'required'
+            'CittaId'=>'required',
+            'Commento' => 'required'
         ]);
         $IdCitta=$request->CittaId;
+        $commento=$request->Commento;
         $query = DB::table('recensione')
             ->where('user_id', '=', session('LoggedUser'))
             ->where('citta_id', '=', $IdCitta)
+            ->where('commento','=',$commento)
             ->delete();
         $nome = DB::table('citta')->where('id', $IdCitta)->value('nome');
         if($query){
