@@ -19,7 +19,7 @@
                     <div class="results">
                         @if(Session::get('success'))
                             <div class="alert alert-success">
-                                {{ Session::get('success') }}
+                                {{ Session::get('success') }}<a href="login">login </a>
                             </div>
                         @endif
                         @if(Session::get('fail'))

@@ -34,7 +34,7 @@ class UserAuthController extends Controller
                 'password'=>Hash::make($request->password)
             ]);    
         if($query){
-            return back()->with('success','Registrazione effettuata con successo');
+            return back()->with('success','Registrazione effettuata con successo,');
         }else{
             return back()->with('fail','Qualcosa è andato storto');
         }

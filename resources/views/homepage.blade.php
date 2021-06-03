@@ -38,14 +38,14 @@
 	</div>  
     <div class="container-fluid" style="margin-top:3rem;display:inline-flex">
         <div class="row" style="width: 100%">
-            <div class="col col-lg-4"">
+            <div class="col-9 col-m-8 col-lg-5"">
                 <form action="/ricerca" method="post" style="z-index: 5" >
                     @csrf
                     <input type="text" name="cityName" placeholder="Ricerca una città" style="width:77%; z-index: 5;border:1px solid black; border-radius: 10px;">
                     <button type="submit" style="width:20%; cursor:pointer">🔍</button>   
                 </form>
             </div>
-            <div class="col" >
+            <div class="col-3 col-md-4" >
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         @foreach ($errors->all() as $error)

@@ -101,7 +101,7 @@
             <div class="col-3"></div>
         </div>
     <hr>
-    <section style="margin-bottom: 3rem"><a href="/"> ☚ Torna all'homepage</a></section>
+    <section style="margin-bottom: 3rem"><a href="/">Torna all'homepage</a></section>
     </div>
 </body>
 </html>
