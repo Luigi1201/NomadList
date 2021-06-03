@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Models\Citta;
 use App\Models\Info_generali;
 use App\Models\Info_meteo;

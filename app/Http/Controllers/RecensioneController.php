@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\support\Facades\DB;
+use Illuminate\Support\Facades\DB;
 
 
 class RecensioneController extends Controller
