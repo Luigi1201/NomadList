@@ -15,9 +15,6 @@
         </video> 
 		<div class="GoNomad" onclick="location.href='/register'">
             <h1><strong><font size="7" color="white"> 🌍 Go nomad  </font></strong></h1>
-            <p style="margin-left: 1rem; margin-top:2rem;  color: white">
-                <strong><font size="4" color="white"> Per entrare nella nostra community basta un click! </font></strong>
-            </p>
         </div>
     </div>      
     <div class="ButtonLogin">
