@@ -40,7 +40,7 @@
             </div>
         </div>
     </div> 
-    <div class="container" style="margin-top: 3rem">
+    <div class="container" style="margin-top: 5rem">
         @if ($LikeOrNot=="Aggiungi")
         <h5>{{$LikeOrNot}} {{ $nomeCitta }} alla lista delle tue città preferite</h5>
         @else <h5>{{$LikeOrNot}} {{ $nomeCitta }} dalla lista delle tue città preferite</h5>
@@ -65,8 +65,8 @@
             {{ $RecensioniUtenti }}
         </div>
         <div class="row" style="margin-top: 3rem">
-            <div class="col-3"></div>
-            <div class="col-6">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
                 @if(Session::get('failUpdate'))
                     <div class="alert alert-danger">
                         {{ Session::get('failUpdate') }}
@@ -77,7 +77,7 @@
                     </div>
                 @endif
             </div>
-            <div class="col-3"></div>
+            <div class="col-md-3"></div>
         </div>
         @if ($errors->any())
             <div class="row" style="margin-top:2rem">
