@@ -31,7 +31,7 @@
                 <h5 style="text-align: center; vertical-align: middle; ">Informazioni meteo</h5>
             </div>
         </div>
-        <div class="row" style="height:22rem">
+        <div class="row">
             <div class="col"  style="margin-top:2rem">
                 {{ $datiGenerali}}
             </div>
@@ -40,7 +40,7 @@
             </div>
         </div>
     </div> 
-    <div class="container" style="margin-top: 6.5rem">
+    <div class="container" style="margin-top: 3rem">
         @if ($LikeOrNot=="Aggiungi")
         <h5>{{$LikeOrNot}} {{ $nomeCitta }} alla lista delle tue città preferite</h5>
         @else <h5>{{$LikeOrNot}} {{ $nomeCitta }} dalla lista delle tue città preferite</h5>

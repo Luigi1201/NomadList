@@ -82,7 +82,7 @@
                             @php 
                                 $IdUser=session('LoggedUser');
                             @endphp
-                            <div style="position: absolute; top: 0; left: 0;width: 17%; height: 17%; object-fit: cover; z-index: 10">
+                            <div style="position: absolute; top: 0; left: 0;width: 15%; height: 14%; object-fit: cover; z-index: 10">
                                 @if (isset($likes[0]))
                                     @foreach ($likes as $like)
                                         @if ($like['citta_id']==$city['id'] && $like['user_id']== $IdUser )
