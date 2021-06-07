@@ -24,11 +24,11 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-6" style="border: 2px solid black; height:3rem">
-                <h5 style="text-align: center; vertical-align: middle; line-height: 3rem ">Informazioni generali</h5>
+            <div class="col" style="border: 2px solid black; ">
+                <h5 style="text-align: center; vertical-align: middle">Informazioni generali</h5>
             </div>
-            <div class="col-6" style="border: 2px solid black; height:3rem">
-                <h5 style="text-align: center; vertical-align: middle; line-height: 3rem ">Informazioni meteo</h5>
+            <div class="col" style="border: 2px solid black">
+                <h5 style="text-align: center; vertical-align: middle; ">Informazioni meteo</h5>
             </div>
         </div>
         <div class="row" style="height:22rem">
@@ -40,7 +40,7 @@
             </div>
         </div>
     </div> 
-    <div class="container" style="margin-top: 5rem">
+    <div class="container" style="margin-top: 6.5rem">
         @if ($LikeOrNot=="Aggiungi")
         <h5>{{$LikeOrNot}} {{ $nomeCitta }} alla lista delle tue città preferite</h5>
         @else <h5>{{$LikeOrNot}} {{ $nomeCitta }} dalla lista delle tue città preferite</h5>
@@ -65,8 +65,7 @@
             {{ $RecensioniUtenti }}
         </div>
         <div class="row" style="margin-top: 3rem">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
+            <div class="col-md-6 offset-md-3">
                 @if(Session::get('failUpdate'))
                     <div class="alert alert-danger">
                         {{ Session::get('failUpdate') }}
@@ -77,31 +76,25 @@
                     </div>
                 @endif
             </div>
-            <div class="col-md-3"></div>
         </div>
         @if ($errors->any())
             <div class="row" style="margin-top:2rem">
-                <div class="col-3"></div>
-                <div class="col-6">
+                <div class="col-md-6 offset-md-3">
                     <div class="alert alert-danger">
                         @foreach ($errors->all() as $error)
                             {{ $error }}                                 
                         @endforeach
                     </div>
                 </div>
-                <div class="col-3"></div>
             </div>
         @endif
         <div class="row" style="margin-top: 3rem">
-            <div class="col-3"></div>
-            <div class="col-6">
+            <div class="col-md-6 offset-md-3">
                 <p style="text-align: center">Sei stato in questa città? racconta la tua esperienza!</p>
-            </div>
-            <div class="col-3"></div> 
+            </div> 
         </div>   
         <div class="row">
-            <div class="col-3"></div>
-                <div class="col-6">
+            <div class="col-md-6 offset-md-3">
                     <form action="{{ route('recensione') }}" method="POST">
                         @csrf
                         <input type="hidden" name="CittaId" value="{{ $cittaId }}">
@@ -109,15 +102,12 @@
                         <div style="margin-top:2rem">
                         <button type="submit" class="btn btn-primary btn-lg btn-block">Invio</button>   
                     </form>
-                </div>
             </div>
-            <div class="col-3"></div> 
         </div>
     </div>
     <div class="container" style="margin-top:3rem">
         <div class="row">
-            <div class="col-3"></div>
-            <div class="col-6">
+            <div class="col-md-6 offset-md-3">
                 @if(Session::get('failDelete'))
                     <div class="alert alert-danger">
                         {{ Session::get('failDelete') }}
@@ -128,7 +118,6 @@
                     </div>
                 @endif
             </div>
-            <div class="col-3"></div>
         </div>
     </div>
     <div class="container" style="margin-top:3rem; margin-bottom:3rem">

@@ -108,16 +108,17 @@
     @if (isset($Recensioni[0]))
         @foreach ($Recensioni as $Recensione)
             @if ( $Recensione['citta_id'] == $Info_citta[0]['id'] )
-            <div class="col-3"></div>
-            <div class="col-6" style="border: 1px solid #ced4da; border-radius: .25rem; margin-top:2rem; box-shadow:  3px  3px 1.5px #fff5ee, -3px -3px 1.5px #fff5ee, 3px -3px 1.5px #fff5ee, -3px  3px 1.5px #fff5ee">
+            <div class="col-md-6 offset-md-3" style="border: 1px solid #ced4da; border-radius: .25rem; margin-top:2rem; box-shadow:  3px  3px 1.5px #fff5ee, -3px -3px 1.5px #fff5ee, 3px -3px 1.5px #fff5ee, -3px  3px 1.5px #fff5ee">
                 <div class="row">
-                    <div class="col"><span style="padding:3%; float:left">
-                        @foreach ($Utenti as $Utente)
-                            @if ($Utente['id'] == $Recensione['user_id'])
-                                <u>{{$Utente['name']}}</u>
-                            @endif
-                        @endforeach
-                    </span></div>
+                    <div class="col">
+                        <span style="padding:3%; float:left">
+                            @foreach ($Utenti as $Utente)
+                                @if ($Utente['id'] == $Recensione['user_id'])
+                                    <u>{{$Utente['name']}}</u>
+                                @endif
+                            @endforeach
+                        </span>
+                    </div>
                 </div>
                 <p style="padding:3%">
                     {{$Recensione['commento']}}
@@ -132,6 +133,7 @@
                                             <form action="{{ route('modifyComment') }}" method="POST" id="formCommento">
                                                 @csrf
                                                 <input type="hidden" name="CittaId" value="{{ $Info_citta[0]['id'] }}">
+                                                <input type="hidden" name="OldComment" value="{{ $Recensione['commento'] }}">
                                                 <input type="hidden" name="commentModified" id="qui" >
                                                 <button type="submit" style="cursor:pointer">🖋️</button>
                                             </form>                    
@@ -156,15 +158,21 @@
                     </div>
                     <div class="col">
                         @php
-                        $data=($Recensione['updated_at'])->format('Y-m-d')
+                        $dataCreazione=($Recensione['created_at']);
+                        $dataModifica=($Recensione['updated_at'])
                         @endphp
                         <span style="padding:3%; float:right">
-                            {{$data}}
+                            @if ($dataCreazione == $dataModifica)
+                                {{$dataCreazione->format('Y-m-d')}}
+                            @elseif ($dataCreazione < $dataModifica)
+                                {{$dataModifica->format('Y-m-d')}}  
+                                <br>
+                                (modificato)
+                            @endif
                         </span>
                     </div>
                 </div>
             </div>
-            <div class="col-3"></div>
             @endif 
         @endforeach
     @endif    

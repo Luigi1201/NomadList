@@ -8,6 +8,11 @@
     <title>Pagina Profilo</title>
 </head>
 <body>
+    <div style="z-index: 2; position: fixed; top: 3.5rem; right: 3rem; cursor: pointer;">
+        <form action="logout">
+            <button class="btn btn-block btn-danger btn-lg">Logout</button>  
+        </form>
+    </div>
     <div class="container">
         <div class="row" style="margin-top:45px">
             <div class="col-md-3"></div>
@@ -18,13 +23,11 @@
                     <thead>
                         <th>Username</th>
                         <th>Email</th>
-                        <th></th>
                     </thead>
                     <tbody>
                         <tr>
                             <td>{{ $LoggedUserInfo->name }}</td>
                             <td>{{ $LoggedUserInfo->email }}</td>
-                            <td><a href="logout">Logout</a></td>
                         </tr>
                     </tbody>
                 </table>

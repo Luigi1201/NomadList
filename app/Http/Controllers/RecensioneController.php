@@ -52,14 +52,17 @@ class RecensioneController extends Controller
     
     public function modifyCommentFunction(Request $request){
         $commentoModificato = $request->commentModified;
+        $oldComment = $request->OldComment;
         $IdCitta = $request->CittaId;
         $request->validate([
-            'commentModified'=>'required|max:255'
+            'commentModified'=>'required|max:255',
+            'OldComment'=>'required'
         ]);
         $affected = DB::table('recensione')
               ->where('user_id', '=', session('LoggedUser'))
               ->where('citta_id', '=', $IdCitta)
-              ->update(['commento' => $commentoModificato]);
+              ->where('commento', '=', $oldComment)
+              ->update(['commento' => $commentoModificato,'updated_at'=>\Carbon\Carbon::now()]);
         $nome = DB::table('citta')->where('id', $IdCitta)->value('nome');
         if($affected){
             return redirect('/'.$nome)->with('successUpdate','Commento modificato con successo!');
