@@ -8,7 +8,7 @@
     <title>Pagina Profilo</title>
 </head>
 <body>
-    <div style="z-index: 2; position: fixed; top: 3.5rem; right: 3rem; cursor: pointer;">
+    <div style="z-index: 2; position: fixed; top: 2rem; right: 2rem; cursor: pointer;">
         <form action="logout">
             <button class="btn btn-block btn-danger btn-lg">Logout</button>  
         </form>

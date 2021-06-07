@@ -40,8 +40,8 @@
 .ButtonLogin{
     z-index: 2;
     position: fixed;
-    top: 3.5rem;
-    right: 3rem;
+    top: 2rem;
+    right: 2rem;
     cursor: pointer;
 }
 
