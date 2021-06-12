@@ -40,7 +40,7 @@
             </div>
         </div>
     </div> 
-    <div class="container" style="margin-top: 3rem">
+    <div class="container" style="margin-top: 7rem">
         @if ($LikeOrNot=="Aggiungi")
         <h5>{{$LikeOrNot}} {{ $nomeCitta }} alla lista delle tue città preferite</h5>
         @else <h5>{{$LikeOrNot}} {{ $nomeCitta }} dalla lista delle tue città preferite</h5>
@@ -65,6 +65,17 @@
             {{ $RecensioniUtenti }}
         </div>
         <div class="row" style="margin-top: 3rem">
+            <div class="col-md-6 offset-md-3">    
+                @if(Session::get('failDelete'))
+                    <div class="alert alert-danger">
+                        {{ Session::get('failDelete') }}
+                    </div>
+                @elseif (Session::get('successDelete'))    
+                    <div class="alert alert-success">
+                        {{ Session::get('successDelete') }}
+                    </div>
+                @endif
+            </div>
             <div class="col-md-6 offset-md-3">
                 @if(Session::get('failUpdate'))
                     <div class="alert alert-danger">
@@ -105,21 +116,6 @@
             </div>
         </div>
     </div>
-    <div class="container" style="margin-top:3rem">
-        <div class="row">
-            <div class="col-md-6 offset-md-3">
-                @if(Session::get('failDelete'))
-                    <div class="alert alert-danger">
-                        {{ Session::get('failDelete') }}
-                    </div>
-                @elseif (Session::get('successDelete'))    
-                    <div class="alert alert-success">
-                        {{ Session::get('successDelete') }}
-                    </div>
-                @endif
-            </div>
-        </div>
-    </div>
     <div class="container" style="margin-top:3rem; margin-bottom:3rem">
         <hr>
         <div class="row">
@@ -128,6 +124,7 @@
             </div>
         </div>
     </div>
+    <!--
     <script>
         const form=document.getElementById("formCommento");
         form.onsubmit=function(event){
@@ -137,5 +134,6 @@
             form.submit();
         }
     </script>
+    -->
 </body>
 </html>

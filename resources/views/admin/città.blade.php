@@ -119,43 +119,6 @@
                             @endforeach
                         </span>
                     </div>
-                </div>
-                <p style="padding:3%">
-                    {{$Recensione['commento']}}
-                </p> 
-                <div class="row">
-                    <div class="col">
-                        @if ($Recensione['user_id'] == session('LoggedUser'))
-                            <div class="row">
-                                <div class="col">
-                                    @if ($Recensione['user_id'] == session('LoggedUser'))
-                                        <span style="padding:3%; float:left">
-                                            <form action="{{ route('modifyComment') }}" method="POST" id="formCommento">
-                                                @csrf
-                                                <input type="hidden" name="CittaId" value="{{ $Info_citta[0]['id'] }}">
-                                                <input type="hidden" name="OldComment" value="{{ $Recensione['commento'] }}">
-                                                <input type="hidden" name="commentModified" id="qui" >
-                                                <button type="submit" style="cursor:pointer">🖋️</button>
-                                            </form>                    
-                                        </span>  
-                                    @endif
-                                </div>
-                                <div class="col">
-                                    @if ($Recensione['user_id'] == session('LoggedUser'))
-                                        <span style="padding:3%; float:left">
-                                            <form action="{{ route('dropComment') }}" method="POST">
-                                                @csrf
-                                                <input type="hidden" name="CittaId" value="{{ $Info_citta[0]['id'] }}">
-                                                <input type="hidden" name="Commento" value="{{ $Recensione->commento }}">
-                                                <button type="submit" style="cursor:pointer">🗑️</button>
-                                            </form>                    
-                                        </span>  
-                                    @endif
-                                </div>
-                                <div class="col-6"></div>
-                            </div>
-                        @endif
-                    </div>
                     <div class="col">
                         @php
                         $dataCreazione=($Recensione['created_at']);
@@ -170,6 +133,39 @@
                                 (modificato)
                             @endif
                         </span>
+                    </div>
+                </div>
+                <p style="padding:3%; word-wrap: break-word;">
+                    {{$Recensione['commento']}}
+                </p> 
+                <div class="row">
+                    <div class="col">
+                        @if ($Recensione['user_id'] == session('LoggedUser'))
+                            <div class="row">
+                                <div class="col-12 col-md-9">
+                                    <span style="padding-bottom:3%; float:right">
+                                        <button type="submit" onclick="modificaRecensione({{$Recensione->id}})" >🖋️</button>           
+                                    </span>  
+                                </div>
+                                <script>
+                                    function modificaRecensione(idRecensione){
+                                        console.log(idRecensione);
+                                        document.getElementById('ModificheRecensione'+idRecensione).innerHTML = 
+                                        '<div class="col"><form action="modifyComment" method="POST">@csrf<input type="hidden" name="OldComment" value='+idRecensione+'><input name="commentModified" type="text" style="width:100%" placeholder="Inserire il nuovo commento"><button type="submit" class="btn btn-dark" style="display: block;margin: 0 auto;">Modifica</button></form></div>'
+                                    }
+                                </script>
+                                <div class="col-md-3">
+                                    <span style="padding-bottom:3%; float:right">
+                                        <form action="{{ route('dropComment') }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="Commento" value="{{ $Recensione->id }}">
+                                            <button type="submit" style="cursor:pointer">🗑️</button>
+                                        </form>                    
+                                    </span>  
+                                </div>    
+                            </div>
+                            <div class="row" id="ModificheRecensione{{$Recensione->id}}"></div>
+                        @endif
                     </div>
                 </div>
             </div>

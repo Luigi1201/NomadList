@@ -26,50 +26,38 @@ class RecensioneController extends Controller
                     'updated_at' => \Carbon\Carbon::now()  # new \Datetime()
                 ]);
         }
-        $nome = DB::table('citta')->where('id', $CittaId)->value('nome');
-        return redirect('/'.$nome);
+        return back();
     }
 
     public function dropRecensioneFunction(Request $request){
         $request->validate([
-            'CittaId'=>'required',
             'Commento' => 'required'
         ]);
-        $IdCitta=$request->CittaId;
         $commento=$request->Commento;
         $query = DB::table('recensione')
-            ->where('user_id', '=', session('LoggedUser'))
-            ->where('citta_id', '=', $IdCitta)
-            ->where('commento','=',$commento)
+            ->where('id','=',$commento)
             ->delete();
-        $nome = DB::table('citta')->where('id', $IdCitta)->value('nome');
         if($query){
-            return redirect('/'.$nome)->with('successDelete','Un commento è stato eliminato');
+            return back()->with('successDelete','Un commento è stato eliminato');
         }else{
-            return redirect('/'.$nome)->with('failDelete','Qualcosa è andato storto');
+            return back()->with('failDelete','Qualcosa è andato storto');
         }          
     }
     
     public function modifyCommentFunction(Request $request){
         $commentoModificato = $request->commentModified;
         $oldComment = $request->OldComment;
-        $IdCitta = $request->CittaId;
         $request->validate([
             'commentModified'=>'required|max:255',
             'OldComment'=>'required'
         ]);
         $affected = DB::table('recensione')
-              ->where('user_id', '=', session('LoggedUser'))
-              ->where('citta_id', '=', $IdCitta)
-              ->where('commento', '=', $oldComment)
-              ->update(['commento' => $commentoModificato,'updated_at'=>\Carbon\Carbon::now()]);
-        $nome = DB::table('citta')->where('id', $IdCitta)->value('nome');
+          ->where('id', '=', $oldComment)
+          ->update(['commento' => $commentoModificato,'updated_at'=>\Carbon\Carbon::now()]);
         if($affected){
-            return redirect('/'.$nome)->with('successUpdate','Commento modificato con successo!');
+            return back()->with('successUpdate','Commento modificato con successo!');
         }else{
-            return redirect('/'.$nome)->with('failUpdate','Qualcosa è andato storto, modifica non riuscita. Sei sicuro di aver cambiato qualcosa?');
-        }      
+            return back()->with('failUpdate','Qualcosa è andato storto, modifica non riuscita. Sei sicuro di aver cambiato qualcosa?');
+        }   
     }
-    
-
 }

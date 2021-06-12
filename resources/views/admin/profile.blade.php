@@ -21,16 +21,68 @@
                 <hr>
                 <table class="table table-hover">
                     <thead>
-                        <th>Username</th>
-                        <th>Email</th>
+                            <th>Username</th>
+                            <th>Email</th>
                     </thead>
                     <tbody>
                         <tr>
                             <td>{{ $LoggedUserInfo->name }}</td>
                             <td>{{ $LoggedUserInfo->email }}</td>
                         </tr>
+                        <tr id="ModificheNomeEmail">
+                            <td style="border:none">
+                                <button type="button" class="btn btn-dark" onclick="cambiaNome()">Modifica</button>
+                            </td>
+                            <td style="border:none">
+                                <button type="button" class="btn btn-dark" onclick="cambiaEmail()">Modifica</button>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
+                <div class="container-fluid">
+                    <div class="results">
+                        @if(Session::get('failUsername'))
+                            <div class="alert alert-danger">
+                                {{ Session::get('failUsername') }}
+                            </div>
+                        @endif
+                    </div>
+                    <div class="results">
+                        @if(Session::get('successUsername'))
+                            <div class="alert alert-success">
+                                {{ Session::get('successUsername') }}
+                            </div>
+                        @endif
+                    </div>
+                    <div class="results">
+                        @if(Session::get('successEmail'))
+                            <div class="alert alert-success">
+                                {{ Session::get('successEmail') }}
+                            </div>
+                        @endif
+                    </div>
+                    <div class="results">
+                        @if(Session::get('failEmail'))
+                            <div class="alert alert-danger">
+                                {{ Session::get('failEmail') }}
+                            </div>
+                        @endif
+                    </div>
+                    <span class="text-danger">
+                        <p style="text-align: center"> 
+                            @error('email')
+                                {{ $message }}
+                            @enderror
+                        </p>
+                    </span>
+                    <span class="text-danger">
+                        <p style="text-align: center"> 
+                            @error('name')
+                                {{ $message }}
+                            @enderror
+                        </p>
+                    </span>
+                </div>
             </div>
             <div class="col-md-3"></div>
         </div>
@@ -55,7 +107,7 @@
                             @if ($cities[$i]['id'] == $idCity)
                                 <div class="row">
                                     <div class="col"> 🌆{{$cities[$i]['nome']}} </div>
-                                    <div class="col"><a href="/{{$cities[$i]['nome']}}"><u>visualizza ora</u></a></div>
+                                    <div class="col"><a href="/{{$cities[$i]['nome']}}" style="color:black"><u>visualizza ora</u></a></div>
                                 </div>
                             @endif 
                         @endfor
@@ -106,5 +158,17 @@
     <hr>
     <section style="margin-bottom: 3rem"><a href="/">Torna all'homepage</a></section>
     </div>
+    <script>
+        function cambiaNome(){
+            document.getElementById('ModificheNomeEmail').innerHTML = 
+            '<td colspan="2"><form method="POST" action="modificaDatiProfiloNome">@csrf<input name="name" type="text" style="width:100%" placeholder="Inserire il nuovo username"><button type="submit" class="btn btn-dark" style="display: block;margin: 0 auto;">Modifica</button></form></td>'
+        }
+    </script>
+    <script>
+        function cambiaEmail(){
+            document.getElementById('ModificheNomeEmail').innerHTML = 
+            '<td colspan="2"><form method="POST" action="modificaDatiProfiloEmail">@csrf<input name="email" type="text" style="width:100%" placeholder="Inserire il nuovo indirizzo email"><button type="submit" class="btn btn-dark" style="display: block;margin: 0 auto;">Modifica</button></form></td>'
+        }
+    </script>
 </body>
 </html>

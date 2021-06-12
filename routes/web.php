@@ -8,7 +8,7 @@ use App\Http\Controllers\CittaHomeController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\RecensioneController;
 use App\Http\Controllers\RicercaController;
-use App\Http\Controllers\VisitaController;
+use App\Http\Controllers\ModificaDatiProfilo;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
@@ -91,6 +91,8 @@ Route::middleware('AlreadyLogged') ->group(function(){
 
 Route::middleware('isLogged') ->group(function(){
     Route::get('profile',[UserAuthController::class,'profile']);
+    Route::post('modificaDatiProfiloNome',[ModificaDatiProfilo::class,'modificaNome']);
+    Route::post('modificaDatiProfiloEmail',[ModificaDatiProfilo::class,'modificaEmail']);
     Route::get('/{nome}',[CityDataController::class, 'getData']);
     Route::post('like',[LikeController::class, 'likeFunction'])->name('like');
     Route::post('recensione', [RecensioneController::class, 'recensioneFunction'])->name('recensione');
