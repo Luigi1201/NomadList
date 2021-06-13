@@ -126,25 +126,34 @@
                     @foreach ($recensioni as $recensione)
                         @if ($recensione['user_id'] == session('LoggedUser') )
                             <div class="col" style="border: 1px solid #ced4da; border-radius: .25rem; margin-top:2rem; box-shadow:  3px  3px 1.5px #fff5ee, -3px -3px 1.5px #fff5ee, 3px -3px 1.5px #fff5ee, -3px  3px 1.5px #fff5ee">
-                                <p style="padding:3%">
-                                    {{$recensione['commento']}}
-                                </p> 
                                 <div class="row">
                                     <div class="col">
                                         @foreach ($cities as $city)
                                             @if ($city['id'] == $recensione['citta_id'])
                                                 <span style="padding:3%; float:left">
-                                                    Nella città: {{$city['nome']}}
+                                                    Nella città:<a href="{{$city['nome']}}" style="color:black"><u>{{$city['nome']}} </u> </a>
                                                 </span>
                                             @endif
                                         @endforeach
                                     </div>
+                                </div>
+                                <p style="padding:3%; word-wrap: break-word">
+                                    {{$recensione['commento']}}
+                                </p> 
+                                <div class="row">
                                     <div class="col">
                                         @php
-                                        $data=($recensione['updated_at'])->format('Y-m-d')
+                                        $dataCreazione=($recensione['created_at']);
+                                        $dataModifica=($recensione['updated_at'])
                                         @endphp
                                         <span style="padding:3%; float:right">
-                                            {{$data}}
+                                            @if ($dataCreazione == $dataModifica)
+                                                {{$dataCreazione->format('Y-m-d')}}
+                                            @elseif ($dataCreazione < $dataModifica)
+                                                {{$dataModifica->format('Y-m-d')}}  
+                                                <br>
+                                                (modificato)
+                                            @endif
                                         </span>
                                     </div>
                                 </div>
