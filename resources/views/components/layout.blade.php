@@ -61,7 +61,7 @@
     <div class="container" style="margin-top: 3rem">
         <h5>Commenti</h5>
         <hr>
-        <div class="row" style="margin-top: 3rem">
+        <div class="row" style="margin-top: 1.5rem">
             <div class="col-md-6 offset-md-3">    
                 @if(Session::get('failInsert'))
                     <div class="alert alert-danger">

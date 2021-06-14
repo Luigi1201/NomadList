@@ -108,7 +108,7 @@
     @if (isset($Recensioni[0]))
         @foreach ($Recensioni as $Recensione)
             @if ( $Recensione['citta_id'] == $Info_citta[0]['id'] )
-                <div class="col-md-6 offset-md-3" style="border: 1px solid #ced4da; border-radius: .25rem; margin-top:2rem; box-shadow:  3px  3px 1.5px #fff5ee, -3px -3px 1.5px #fff5ee, 3px -3px 1.5px #fff5ee, -3px  3px 1.5px #fff5ee">
+                <div class="col-md-6 offset-md-3" style="border: 1px solid #ced4da; border-radius: .25rem; box-shadow:  3px  3px 1.5px #fff5ee, -3px -3px 1.5px #fff5ee, 3px -3px 1.5px #fff5ee, -3px  3px 1.5px #fff5ee">
                     <div class="row">
                         <div class="col">
                             <span style="padding:3%; float:left">
@@ -163,65 +163,63 @@
                     </div>
                     <div class="w-100"></div>
                     <div class="container-fluid">
-                        @if ($Recensione->user_id != session('LoggedUser'))
-                             @php
-                                $exist=0;
-                            @endphp
+                        @php
+                            $exist=0;
+                        @endphp
+                        @foreach ($Risposte as $Risposta)
+                            @if ($Risposta->recensione_id == $Recensione->id)
+                                @php
+                                    $exist=1;
+                                @endphp
+                            @endif
+                        @endforeach
+                        @if ($exist==1)
+                            <hr>
+                            <div class="row">
+                                <h6 style="padding-left:3%; padding-right:3%; padding-bottom:3%; float:left">Risposte:</h6>
+                            </div>
                             @foreach ($Risposte as $Risposta)
                                 @if ($Risposta->recensione_id == $Recensione->id)
-                                    @php
-                                        $exist=1;
-                                    @endphp
-                                @endif
-                            @endforeach
-                            @if ($exist==1)
-                                <hr>
-                                <div class="row">
-                                    <h6 style="padding-left:3%; padding-right:3%; padding-bottom:3%; float:left">Risposte:</h6>
-                                </div>
-                                @foreach ($Risposte as $Risposta)
-                                    @if ($Risposta->recensione_id == $Recensione->id)
-                                        <div class="row" style=" max-width:90%; border:2px solid #DEDEDE; margin:0 auto; margin-bottom:1%">
-                                            <div class="col">
-                                                @foreach ($Utenti as $Utente)
-                                                    @if ($Utente->id == $Risposta->user_id)
-                                                        <div class="row">
-                                                            <div class="col">
-                                                                <u>{{$Utente->name}}</u>
-                                                            </div>
+                                    <div class="row" style=" max-width:90%; border:2px solid #DEDEDE; margin:0 auto; margin-bottom:1%">
+                                        <div class="col">
+                                            @foreach ($Utenti as $Utente)
+                                                @if ($Utente->id == $Risposta->user_id)
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <u>{{$Utente->name}}</u>
                                                         </div>
-                                                    @endif
-                                                @endforeach
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <p style="padding:3%; word-wrap: break-word">
-                                                            {{$Risposta->rispostaCommento}}
-                                                        </p> 
                                                     </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <span style="padding-bottom:3%; float:right">
-                                                            <form action="dropRisposta" method="POST">
-                                                                @csrf
-                                                                <input type="hidden" name="RispostaId" value="{{ $Risposta->id }}">
-                                                                <button type="submit" style="cursor:pointer">🗑️</button>
-                                                            </form>                    
-                                                        </span>  
-                                                    </div>
+                                                @endif
+                                            @endforeach
+                                            <div class="row">
+                                                <div class="col">
+                                                    <p style="padding:3%; word-wrap: break-word">
+                                                        {{$Risposta->rispostaCommento}}
+                                                    </p> 
                                                 </div>
                                             </div>
-                                        </div>    
-                                    @endif
-                                @endforeach
-                            @endif
-                            <div class="row" style="padding:2%;width:100%">
-                                <div class="col" style="margin:0 auto; text-align: center">
-                                    <button class="btn btn-light" type="submit" onclick="rispostaRecensione({{$Recensione->id}})" style="cursor:pointer">Rispondi</button>
-                                </div>
-                            </div>
-                            <div class="row" style="padding:2%" id="Risposta{{$Recensione->id}}"></div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span style="padding-bottom:3%; float:right">
+                                                        <form action="dropRisposta" method="POST">
+                                                            @csrf
+                                                            <input type="hidden" name="RispostaId" value="{{ $Risposta->id }}">
+                                                            <button type="submit" style="cursor:pointer">🗑️</button>
+                                                        </form>                    
+                                                    </span>  
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>    
+                                @endif
+                            @endforeach
                         @endif
+                        <div class="row" style="padding:2%;width:100%">
+                            <div class="col" style="margin:0 auto; text-align: center">
+                                <button class="btn btn-light" type="submit" onclick="rispostaRecensione({{$Recensione->id}})" style="cursor:pointer">Rispondi</button>
+                            </div>
+                        </div>
+                        <div class="row" style="padding:2%" id="Risposta{{$Recensione->id}}"></div>
                     </div>
                 </div>
             @endif 
