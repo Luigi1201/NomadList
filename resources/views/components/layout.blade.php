@@ -61,10 +61,18 @@
     <div class="container" style="margin-top: 3rem">
         <h5>Commenti</h5>
         <hr>
-        <div class="row">
-            {{ $RecensioniUtenti }}
-        </div>
         <div class="row" style="margin-top: 3rem">
+            <div class="col-md-6 offset-md-3">    
+                @if(Session::get('failInsert'))
+                    <div class="alert alert-danger">
+                        {{ Session::get('failInsert') }}
+                    </div>
+                @elseif (Session::get('okInsert'))    
+                    <div class="alert alert-success">
+                        {{ Session::get('okInsert') }}
+                    </div>
+                @endif
+            </div>
             <div class="col-md-6 offset-md-3">    
                 @if(Session::get('failDelete'))
                     <div class="alert alert-danger">
@@ -73,6 +81,11 @@
                 @elseif (Session::get('successDelete'))    
                     <div class="alert alert-success">
                         {{ Session::get('successDelete') }}
+                    </div>
+                @endif
+                @if (Session::get('successDeleteRisposta'))    
+                    <div class="alert alert-success">
+                        {{ Session::get('successDeleteRisposta') }}
                     </div>
                 @endif
             </div>
@@ -87,18 +100,32 @@
                     </div>
                 @endif
             </div>
-        </div>
-        @if ($errors->any())
-            <div class="row" style="margin-top:2rem">
+            <div class="col-md-6 offset-md-3">
+                @if(Session::get('failRisposta'))
+                    <div class="alert alert-danger">
+                        {{ Session::get('failRisposta') }}
+                    </div>
+                @elseif (Session::get('okRisposta'))    
+                    <div class="alert alert-success">
+                        {{ Session::get('okRisposta') }}
+                    </div>
+                @endif
+            </div>
+            @if ($errors->any())
                 <div class="col-md-6 offset-md-3">
                     <div class="alert alert-danger">
                         @foreach ($errors->all() as $error)
-                            {{ $error }}                                 
+                            {{ $error }}
                         @endforeach
                     </div>
                 </div>
+            @endif
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                {{ $RecensioniUtenti }}
             </div>
-        @endif
+        </div>
         <div class="row" style="margin-top: 3rem">
             <div class="col-md-6 offset-md-3">
                 <p style="text-align: center">Sei stato in questa città? racconta la tua esperienza!</p>
@@ -124,6 +151,16 @@
             </div>
         </div>
     </div>
+    <script>
+        function modificaRecensione(idRecensione){
+            document.getElementById('ModificheRecensione'+idRecensione).innerHTML = 
+            '<div class="col"><form action="modifyComment" method="POST">@csrf<input type="hidden" name="OldComment" value='+idRecensione+'><input name="commentModified" type="text" style="width:100%" placeholder="Inserire il nuovo commento"><button type="submit" class="btn btn-dark" style="display: block;margin: 0 auto;">Modifica</button></form></div>'
+        }
+        function rispostaRecensione(idRecensione){
+            document.getElementById('Risposta'+idRecensione).innerHTML = 
+            '<div class="col"><form action="newRispostaRecensione" method="POST">@csrf<input type="hidden" name="commentoId" value='+idRecensione+'><input name="risposta" type="text" style="width:100%" placeholder="Inserire una risposta"><button type="submit" class="btn btn-primary" style="display: block;margin: 0 auto;">Invio</button></form></div>'
+        }
+    </script>
     <!--
     <script>
         const form=document.getElementById("formCommento");

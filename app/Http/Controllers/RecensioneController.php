@@ -25,8 +25,12 @@ class RecensioneController extends Controller
                     'created_at' =>  \Carbon\Carbon::now(), # new \Datetime()
                     'updated_at' => \Carbon\Carbon::now()  # new \Datetime()
                 ]);
+            if($query){
+                return back()->with('okInsert',"Commento pubblicato con successo!");
+            }else{
+                return back()->with('failInsert',"Errore, qualcosa è andato storto nella pubblicazione del commento");
+            }
         }
-        return back();
     }
 
     public function dropRecensioneFunction(Request $request){
@@ -59,5 +63,39 @@ class RecensioneController extends Controller
         }else{
             return back()->with('failUpdate','Qualcosa è andato storto, modifica non riuscita. Sei sicuro di aver cambiato qualcosa?');
         }   
+    }
+
+    public function newRispostaFunction(Request $request){
+        if(session()->has('LoggedUser')){
+            $request->validate([
+                'commentoId'=>'required',
+                'risposta'=>'required'
+            ]);
+            $query = DB::table("risposta")
+                ->insert([
+                    'recensione_id'=> $request->commentoId,
+                    'user_id'=> session('LoggedUser'),
+                    'rispostaCommento'=> $request->risposta
+                ]);
+            if($query){
+                return back()->with('okRisposta',"Risposta pubblicata con successo!");
+            }else{
+                return back()->with('failRisposta',"Errore, qualcosa è andato storto");
+            }
+        }
+    }  
+
+    public function dropRispostaFunction(Request $request){
+        $request->validate([
+            'RispostaId' => 'required'
+        ]);
+        $query = DB::table('risposta')
+            ->where('id','=',$request->RispostaId)
+            ->delete();
+        if($query){
+            return back()->with('successDeleteRisposta','La tua risposta al commento è stata eliminata');
+        }else{
+            return back()->with('failDelete','Qualcosa è andato storto');
+        }          
     }
 }

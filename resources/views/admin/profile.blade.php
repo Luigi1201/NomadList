@@ -93,11 +93,13 @@
                 <hr>
                 @php
                     $idCities=array();
+                    $yesOrNot = 0;
                 @endphp
                 @if (isset($likes[0]))
                     @foreach ($likes as $like)
                         @if ($like['user_id'] == session('LoggedUser') )
                             @php
+                                $yesOrNot = 1;
                                 array_push($idCities,$like['citta_id']);
                             @endphp
                         @endif    
@@ -112,7 +114,9 @@
                             @endif 
                         @endfor
                     @endforeach
-                @else <p>Non hai ancora città preferite, aggiungile tramite il tasto mi piace!</p>    
+                @endif
+                @if($yesOrNot == 0)
+                    <p>Non hai ancora città preferite, aggiungile tramite il tasto mi piace!</p>
                 @endif
             </div>
             <div class="col-3"></div>
@@ -122,9 +126,15 @@
             <div class="col-md-6 col-md-offset-3">
                 <h5>I tuoi commenti - Diario di viaggio ✒️</h5>
                 <hr>
+                @php
+                    $yesOrNot = 0;
+                @endphp
                 @if (isset($recensioni[0]))
                     @foreach ($recensioni as $recensione)
                         @if ($recensione['user_id'] == session('LoggedUser') )
+                        @php
+                            $yesOrNot = 1;
+                        @endphp
                             <div class="col" style="border: 1px solid #ced4da; border-radius: .25rem; margin-top:2rem; box-shadow:  3px  3px 1.5px #fff5ee, -3px -3px 1.5px #fff5ee, 3px -3px 1.5px #fff5ee, -3px  3px 1.5px #fff5ee">
                                 <div class="row">
                                     <div class="col">
@@ -161,6 +171,9 @@
                         @endif    
                     @endforeach 
                 @endif
+                @if ($yesOrNot==0)
+                    <p>Non hai inserito alcun commento - Diario di viaggio vuoto</p>
+                @endif 
             </div>
             <div class="col-3"></div>
         </div>
@@ -172,8 +185,6 @@
             document.getElementById('ModificheNomeEmail').innerHTML = 
             '<td colspan="2"><form method="POST" action="modificaDatiProfiloNome">@csrf<input name="name" type="text" style="width:100%" placeholder="Inserire il nuovo username"><button type="submit" class="btn btn-dark" style="display: block;margin: 0 auto;">Modifica</button></form></td>'
         }
-    </script>
-    <script>
         function cambiaEmail(){
             document.getElementById('ModificheNomeEmail').innerHTML = 
             '<td colspan="2"><form method="POST" action="modificaDatiProfiloEmail">@csrf<input name="email" type="text" style="width:100%" placeholder="Inserire il nuovo indirizzo email"><button type="submit" class="btn btn-dark" style="display: block;margin: 0 auto;">Modifica</button></form></td>'

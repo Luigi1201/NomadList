@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRecensioneTable extends Migration
+class RispostaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateRecensioneTable extends Migration
      */
     public function up()
     {
-        Schema::create('recensione', function (Blueprint $table) {
+        Schema::create('risposta', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->charset = 'utf8mb4';
             $table->bigIncrements('id');
-            $table->text('commento');
-            $table->timestamps($precision = 0);
-            $table->foreignId('citta_id')->constrained('citta')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('recensione_id')->constrained('recensione')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->text('rispostaCommento');
         });
     }
 
@@ -31,6 +30,6 @@ class CreateRecensioneTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('recensione');
+        //
     }
 }

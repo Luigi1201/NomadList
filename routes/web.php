@@ -98,4 +98,6 @@ Route::middleware('isLogged') ->group(function(){
     Route::post('recensione', [RecensioneController::class, 'recensioneFunction'])->name('recensione');
     Route::post('dropComment', [RecensioneController::class, 'dropRecensioneFunction'])->name('dropComment');
     Route::post('modifyComment', [RecensioneController::class, 'modifyCommentFunction'])->name('modifyComment');
+    Route::post('newRispostaRecensione',[RecensioneController::class, 'newRispostaFunction']);
+    Route::post('dropRisposta',[RecensioneController::class, 'dropRispostaFunction']);
 });

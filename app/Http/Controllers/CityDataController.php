@@ -9,6 +9,7 @@ use App\Models\Info_meteo;
 use App\Models\Like;
 use App\Models\Recensione;
 use App\Models\User;
+use App\Models\Risposta;
 
 class CityDataController extends Controller
 {
@@ -21,6 +22,7 @@ class CityDataController extends Controller
         $Likes = Like::all();
         $Recensioni = Recensione::all();
         $Utenti = User::all();
-        return view( 'admin.città' , ['Info_citta' => $Info_citta, 'Info_generali' => $Info_generali, 'Info_meteo' => $Info_meteo, 'likes' => $Likes, 'Recensioni' => $Recensioni, 'Utenti' => $Utenti]);
+        $Risposte = Risposta::all();
+        return view( 'admin.città' , ['Info_citta' => $Info_citta, 'Info_generali' => $Info_generali, 'Info_meteo' => $Info_meteo, 'likes' => $Likes, 'Recensioni' => $Recensioni, 'Utenti' => $Utenti, 'Risposte' => $Risposte]);
     }
 }
