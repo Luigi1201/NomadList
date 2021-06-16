@@ -167,6 +167,23 @@
                                         </span>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    @php
+                                        $ricezioneRisposte=0;
+                                    @endphp
+                                    <span style="padding:3%; float:right">
+                                        @foreach ($risposte as $risposta)
+                                            @if ($risposta->recensione_id == $recensione->id)
+                                                @php
+                                                    $ricezioneRisposte=1;
+                                                @endphp
+                                            @endif
+                                        @endforeach
+                                    </span>
+                                    @if ($ricezioneRisposte==1)
+                                    ➠ Qualcuno ha risposto a questo commento
+                                    @endif
+                                </div>
                             </div>
                         @endif    
                     @endforeach 

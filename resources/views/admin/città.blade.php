@@ -114,7 +114,7 @@
                             <span style="padding:3%; float:left">
                                 @foreach ($Utenti as $Utente)
                                     @if ($Utente['id'] == $Recensione['user_id'])
-                                        <h5 style="color:red" ><strong><u>{{$Utente['name']}}</u></strong></h5>
+                                        <h5 style="color:red" ><strong>{{$Utente['name']}}</u></strong></h5>
                                     @endif
                                 @endforeach
                             </span>
@@ -186,7 +186,7 @@
                                                 @if ($Utente->id == $Risposta->user_id)
                                                     <div class="row">
                                                         <div class="col">
-                                                            <u>{{$Utente->name}}</u>
+                                                            👤{{$Utente->name}}
                                                         </div>
                                                     </div>
                                                 @endif

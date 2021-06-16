@@ -9,6 +9,7 @@ use App\Models\Like;
 use App\Models\Citta;
 use App\Models\Recensione;
 use App\Models\Visita;
+use App\Models\Risposta;
 
 class UserAuthController extends Controller
 {
@@ -76,7 +77,8 @@ class UserAuthController extends Controller
         $cities = Citta::all();
         $recensioni = Recensione::all();
         $visite = Visita::all();
-        return view('admin.profile',$data,['likes' => $likes , 'cities' => $cities, 'recensioni' => $recensioni,'visite' => $visite]);
+        $risposte = Risposta::all();
+        return view('admin.profile',$data,['likes' => $likes , 'cities' => $cities, 'recensioni' => $recensioni,'visite' => $visite, 'risposte' => $risposte]);
     }
 
     function logout(){
