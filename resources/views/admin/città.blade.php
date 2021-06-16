@@ -108,7 +108,7 @@
     @if (isset($Recensioni[0]))
         @foreach ($Recensioni as $Recensione)
             @if ( $Recensione['citta_id'] == $Info_citta[0]['id'] )
-                <div class="col-md-6 offset-md-3" style="border: 1px solid #ced4da; border-radius: .25rem; box-shadow:  3px  3px 1.5px #fff5ee, -3px -3px 1.5px #fff5ee, 3px -3px 1.5px #fff5ee, -3px  3px 1.5px #fff5ee">
+                <div class="col-md-6 offset-md-3" style="margin-top:1.4rem; border: 1px solid #ced4da; border-radius: .25rem; box-shadow:  3px  3px 1.5px #fff5ee, -3px -3px 1.5px #fff5ee, 3px -3px 1.5px #fff5ee, -3px  3px 1.5px #fff5ee">
                     <div class="row">
                         <div class="col">
                             <span style="padding:3%; float:left">
