@@ -198,17 +198,19 @@
                                                     </p> 
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <span style="padding-bottom:3%; float:right">
-                                                        <form action="dropRisposta" method="POST">
-                                                            @csrf
-                                                            <input type="hidden" name="RispostaId" value="{{ $Risposta->id }}">
-                                                            <button type="submit" style="cursor:pointer">🗑️</button>
-                                                        </form>                    
-                                                    </span>  
+                                            @if ($Risposta->user_id == session('LoggedUser'))
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <span style="padding-bottom:3%; float:right">
+                                                            <form action="dropRisposta" method="POST">
+                                                                @csrf
+                                                                <input type="hidden" name="RispostaId" value="{{ $Risposta->id }}">
+                                                                <button type="submit" style="cursor:pointer">🗑️</button>
+                                                            </form>                    
+                                                        </span>  
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            @endif
                                         </div>
                                     </div>    
                                 @endif
